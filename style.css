@@ -1,3 +1,10 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Open Sans', sans-serif;
+
+}
+
 body {
 	display: grid;
 	font-family: 'Open Sans', sans-serif;
@@ -11,9 +18,87 @@ body {
 }
 
 .navBar {
+	display:block;
 	grid-area: sidebar;
 	background-color: #1F1F3D;
+	color:#ffffff;	
 }
+
+.navBar-header {
+	font-weight: bold;
+	font-size: 30px;
+	padding: 20px;
+}
+
+.navBar-star {
+	
+}
+
+.navBar-star-title {
+	padding:20px;
+}
+
+.navBar-star-button {
+	width: 85%;
+	margin:15px 10px 15px 20px;
+	height: 35px;
+	color:#ffffff;
+	background-color: #5356A4;
+	border: 1px #353567;
+	font-size: 95%;
+	font-weight: 700;
+
+}
+
+.navBar-border {
+	background-color: #A9AAD2;
+	width: 100%;
+	height: 1px;
+}
+
+.quality-swill-btn,
+.quality-plausible-btn,
+.quality-genius-btn {
+	width: 100%;
+	color: #ffffff;
+	height: 30px;
+	background-color: #1F1F3D;
+	text-align: left;
+	font-size: 20px;
+	padding: 20px;
+	border: 0px;
+}
+
+.quality-title {
+	font-size: 15px;
+	font-weight: 700;
+	padding: 20px 20px 5px 20px;
+}
+.quality-new-btn {
+	width: 85%;
+	margin: 5px 10px 15px 20px;
+	height: 35px;
+	color:#ffffff;
+	background-color: #5356A4;
+	border: 1px #353567;
+	font-size: 95%;
+	font-weight: 700;
+}
+
+
+.quality-new-title {
+	padding: 20px 20px 5px 20px;
+	font-size: 15px;
+	font-weight: 700;
+}
+
+.quality-new-input {
+	margin: 5px 10px 15px 20px;
+	height: 35px;
+	width: 85%;
+}
+
+
 
 .idea {
 	display: flex;
@@ -50,7 +135,7 @@ body {
 	height: 40px;
 	margin: 2% 0;
 	background-color: #1F1F3D;
-	color: white;
+	color: #ffffff;
 	border-radius: 5px;
 	border: 1px solid #5356A4;
 	font-size: 20px;
@@ -82,7 +167,6 @@ body {
 	grid-area: card;
 	background-color: #EAEAF4;
 }
-
 .box-card {
 	margin: 2%;
 	width: 30%;
