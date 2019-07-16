@@ -6,72 +6,61 @@
 </head>
 <body>
 	<container class="navBar">
-		<section class="navBar-header">
-		</section>
+		<header class="navBar-header">IdeaBox Redux
+		</header>
 		<section class="navBar-star">
-			<p class="navBar-star-title">
-			</p>
-			<button class="navBar-star-button">
-			</button>
+			<p class="navBar-star-title">Filter Starred Ideas</p>
+			<button class="navBar-star-button" type="button">Show Starred Ideas</button>
 		</section>
 		<section class="quality">
-			<p class="quality-title">
-			</p>
-			<button class="quality-swill-btn">
-			</button>
-			<button class="quality-plausible-btn">
-			</button>
-			<button class="quality-genius-btn">
-			</button>
-			<p class="quality-new-title">
-			</p>
-			<input class="quality-new-input">
-			<button class="quality-new-btn">
-			</button>
+			<p class="quality-title">Filter by Quality</p>
+			<button class="quality-swill-btn" type="button">Swill</button>
+			<button class="quality-plausible-btn" type="button">Plausible</button>
+			<button class="quality-genius-btn" type="button">Genius</button>
+			<form class="quality-form">
+				<p class="quality-new-title">New Quality</p>
+				<input class="quality-new-input" type="text">
+				<button class="quality-new-btn" type="button">Add New Quality</button>
+			</form>
 		</section>
 	</container>
 	<container class="idea">
 		<form class="idea-form">
 			<section class="idea-title">
-				<p class="idea-title-name">
-				</p>
-				<input class="idea-title-input">
+				<p class="idea-title-name">Title</p>
+				<input class="idea-title-input" type="text">
 			</section>
 			 <section class="idea-body">
-			 	<p class="idea-body-title">
-			 	</p>
-			 	<input class="idea-body-input">
+			 	<p class="idea-body-title">Body</p>
+			 	<input class="idea-body-input" type="text">
 			 </section>
-			 <button class="idea-save-btn">
-			 </button>
+			 <button class="idea-save-btn" type="button">Save</button>
 		</form>
 		<section class="idea-search">
 			<img class="idea-search-icon">
-			<input class="idea-search-input">
+			<input class="idea-search-input" type="text" placeholder="Search ideas">
 		</section>
 	</container>
 	<container class="box">
 		<section class="box-card">
 			<header class="box-card-header">
 				<!-- images that are buttons -->
-				<img class="img-btn-star">
-				<img class="img-btn-exit">
+				<img class="img-btn-star" type="button">
+				<img class="img-btn-exit" type="button">
 			</header>
 			<section class="box-card-main">
-				<p class="box-card-title">
-				</p>
-				<p class="box-car-body">
-				</p>
+				<p class="box-card-title">Idea title</p>
+				<p class="box-car-body">Idea body. Don't ever play yourself. Every chance I get, I water the plants, Lion! Cloth talk.</p>
 			</section>
 			<footer class="box-card-footer">
 				<!-- image button -->
-				<img class="footer-quality-up">
-				<p class="box-card-quality">
-					<span class="box-card-value">
+				<img class="footer-quality-up" type="button">
+				<p class="box-card-quality">Quality
+					<span class="box-card-value">Swill
 					</span>
 				</p>
 				<!-- image button -->
-				<img class="footer-quality-down">
+				<img class="footer-quality-down" type="button">
 			</footer>
 		</section>
 	</container>
