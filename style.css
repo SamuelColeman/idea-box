@@ -11,16 +11,16 @@ body {
 
 .navBar {
 	grid-area: sidebar;
-	background-color: red;
+	background-color: #1F1F3D;
 }
 
 .idea {
 	grid-area: idea;
-	background-color: blue;
+	background-color: #A9AAD2
 }
 
 .box {
 	grid-area: card;
-	background-color: green;
+	background-color: #EAEAF4;
 }
 
