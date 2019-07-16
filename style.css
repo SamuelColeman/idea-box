@@ -1,5 +1,6 @@
 body {
 	display: grid;
+	font-family: 'Open Sans', sans-serif;
 	grid-template-columns: 20% auto;
 	grid-template-rows: 40% auto;
 	grid-template-areas: 
@@ -24,3 +25,45 @@ body {
 	background-color: #EAEAF4;
 }
 
+.box-card {
+	margin: 2%;
+	width: 30%;
+}
+
+.box-card-header {
+	background-color: #1F1F3D;
+	color: #FFFFFF;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.box-card-main {
+	background-color: #FFFFFF;
+	padding: 3%;
+}
+
+.box-card-title {
+	font-weight: 700;
+}
+
+.box-card-footer {
+	background-color: #353567;
+	color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 2% 0;
+	padding: .5% 0;
+}
+
+.box-card-quality {
+	font-weight: 700;
+	margin: 0;
+}
+
+.box-card-icon {
+	height: 10%;
+	width: 10%;
+}
