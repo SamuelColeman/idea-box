@@ -26,8 +26,9 @@ body {
 }
 
 .box-card {
+	border: 1px solid #1F1F3D;
 	margin: 2%;
-	width: 30%;
+	width: 29%;
 }
 
 .box-card-header {
@@ -40,11 +41,16 @@ body {
 
 .box-card-main {
 	background-color: #FFFFFF;
+	height: 200px;
 	padding: 3%;
 }
 
 .box-card-title {
 	font-weight: 700;
+}
+
+.box-card-body {
+	font-size: 1em;
 }
 
 .box-card-footer {
@@ -54,7 +60,6 @@ body {
 	align-items: center;
 	flex-direction: row;
 	justify-content: space-between;
-	margin: 2% 0;
 	padding: .5% 0;
 }
 
