@@ -1,5 +1,6 @@
 body {
 	display: grid;
+	font-family: 'Open Sans', sans-serif;
 	grid-template-columns: 20% auto;
 	grid-template-rows: 40% auto;
 	grid-template-areas: 
