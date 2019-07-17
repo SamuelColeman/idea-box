@@ -165,9 +165,15 @@ body {
 .box {
 	grid-area: card;
 	background-color: #EAEAF4;
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+
 }
 .box_card {
 	border: 1px solid #1F1F3D;
+	justify-content: space-between;
+	height: 50%;
 	margin: 2%;
 	width: 29%;
 }
