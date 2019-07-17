@@ -1,7 +1,7 @@
 // var Idea = require('idea');
 
 var ideaArr = [];
-var ideaObj = JSON.parse(localStorage.getItem());
+// var ideaObj = JSON.parse(localStorage.getItem());
 var ideaTitleInput = document.querySelector('.idea_title-input');
 var ideaBodyInput = document.querySelector('.idea_body-input');
 var ideaSaveBtn = document.querySelector('.idea_save-btn');
@@ -11,9 +11,9 @@ ideaSaveBtn.addEventListener('click', makeNewIdea);
 
 function makeNewIdea() {
 	var idea = new Idea(ideaTitleInput.value, ideaBodyInput.value);
-	ideaArr.push(idea);
+	// ideaArr.push(idea);
 	appendNewCard();
-	setLocalStorage(ideaArr);
+	idea.setLocalStorage();
 	console.log('Hi');
 }
 

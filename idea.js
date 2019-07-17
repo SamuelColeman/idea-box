@@ -6,13 +6,14 @@ class Idea {
 		this.star = false;
 		this.quality = 0;
 	}
-	// setLocalStorage() {
+	// setLocalStorage(idea) {
 	// 	var ideaToStore = ideaArr;
 	// 	var stringifiedIdea = JSON.stringify(ideaToStore);
 		// localStorage.setItem('storedIdea', ideaToStore);
+		// localStorage.setItem(idea.id, JSON.stringify(idea));
 	// }
-	setLocalStorage(ideaObj) {
-		localStorage.setItem('storedIdea', JSON.stringify(ideaObj));
+	setLocalStorage() {
+		localStorage.setItem(this.id, JSON.stringify(this));
 	}
 
 }
