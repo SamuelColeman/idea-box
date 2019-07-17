@@ -1,34 +1,48 @@
-// var Idea = require('idea');
-
 var ideaArr = [];
-// var ideaObj = JSON.parse(localStorage.getItem());
 var ideaTitleInput = document.querySelector('.idea_title-input');
 var ideaBodyInput = document.querySelector('.idea_body-input');
-var ideaSaveBtn = document.querySelector('.idea_save-btn');
+var ideaContainer = document.querySelector('.idea');
 
+// ideaTitleInput.addEventListener('keyup', )
 
-ideaSaveBtn.addEventListener('click', makeNewIdea);
+ideaContainer.addEventListener('click', targetSaveBtn);
 
-function makeNewIdea() {
-	var idea = new Idea(ideaTitleInput.value, ideaBodyInput.value);
-	// ideaArr.push(idea);
-	appendNewCard();
-	idea.setLocalStorage();
-	console.log('Hi');
+function targetSaveBtn(e) {
+	e.preventDefault();
+	if (e.target.classList.contains('idea_save-btn')) {
+		makeNewIdea();
+	}
 }
 
-function appendNewCard() {
-	var box = document.querySelector('.box');
+function makeNewIdea() {
+	var idea = new Idea(ideaTitleInput.value, ideaBodyInput.value, Date.now());
+	// ideaArr.push(idea);
+	idea.setLocalStorage();
+	idea.getLocalStorage();
+	appendNewCard(idea);
+	console.log('Hi');
+}
+var box = document.querySelector('.box');
+
+box.addEventListener('click', deleteCard);
+
+function deleteCard(e) {
+	if (e.target.classList.contains('img_btn-exit')) {
+		e.target.parentNode.parentNode.remove();
+	}
+}
+
+function appendNewCard(idea) {
 	box.insertAdjacentHTML('afterbegin',
-				`<section class="box_card">
+				`<section class="box_card" data-id=${idea.id}>
 			<header class="box_card-header">
 				<!-- images that are buttons -->
 				<input class="img_btn-star box_card-icon" src="images/star.svg" type="image">
 				<input class="img_btn-exit box_card-icon" src="images/delete.svg" type="image">
 			</header>
 			<section class="box_card-main">
-				<p class="box_card-title">${ideaTitleInput.value}</p>
-				<p class="box_card-body">${ideaBodyInput.value}</p>
+				<p class="box_card-title">${idea.title}</p>
+				<p class="box_card-body">${idea.body}</p>
 			</section>
 			<footer class="box_card-footer">
 				<!-- image button -->
@@ -42,6 +56,7 @@ function appendNewCard() {
 			</footer>
 		</section>`);
 }
+
 
 // ideaArr[0].id 
 

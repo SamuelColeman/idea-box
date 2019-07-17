@@ -1,21 +1,22 @@
 class Idea {
-	constructor(title, body) {
-		this.id = Date.now();
+	constructor(title, body, id) {
+		this.id = id;
 		this.title = title;
 		this.body = body;
 		this.star = false;
 		this.quality = 0;
 	}
-	// setLocalStorage(idea) {
-	// 	var ideaToStore = ideaArr;
-	// 	var stringifiedIdea = JSON.stringify(ideaToStore);
-		// localStorage.setItem('storedIdea', ideaToStore);
-		// localStorage.setItem(idea.id, JSON.stringify(idea));
-	// }
+
+
 	setLocalStorage() {
 		localStorage.setItem(this.id, JSON.stringify(this));
+		console.log('working')
+	}
+
+	getLocalStorage() {
+		JSON.parse(localStorage.getItem(this.id));
+		console.log('isworking')
 	}
 
 }
 
-// module.exports = Idea;
