@@ -6,43 +6,58 @@ var ideaContainer = document.querySelector('.idea');
 var box = document.querySelector('.box');
 var boxCard = document.querySelector('.box-card');
 
-ideaContainer.addEventListener('click', targetSaveBtn);
+ideaContainer.addEventListener('click', clickSaveBtn);
 box.addEventListener('click', ideaCardActions);
+window.addEventListener('load', pageLoad);
 
-// function disableBtn() {
-// 	var ideaSaveBtn = document.querySelector('.idea_save-btn')
-// 	if (ideaTitleInput.value === '' || ideaBodyInput.value === '') {
-// 		ideaSaveBtn.disabled = true;
-// 	} else {
-// 		ideaSaveBtn.disabled = false;
-// 	}
-// }
-// disableBtn();
+function pageLoad(){
+	persistedIdeas();
+	reinstantiateCard();
+}
 
 
-function targetSaveBtn(e) {
+function persistedIdeas(){
+	for (var i = 0; i < globalArr.length; i++){
+		var id = globalArr[i].id;
+		var title = globalArr[i].title;
+		var body = globalArr[i].body;
+		var star = globalArr[i].star;
+		var quality = globalArr[i].quality;
+		var index = i;
+		reassignClass(id,title,body,star,quality,i);
+		}
+	}
+
+
+function reassignClass( id, title, body, star, quality, i){
+	var idea = new Idea({ id : id,title : title,body : body,star : star,quality : quality });
+		globalArr.splice(i,1,idea);
+}
+
+
+function reinstantiateCard(){
+// 		// take global array send back through appendNewCard()
+	globalArr.forEach(function(idea){
+		appendNewCard(idea);
+	}) 
+}
+
+
+function clickSaveBtn(e) {
 	e.preventDefault();
 	if (e.target.classList.contains('idea_save-btn')) {
 		makeNewIdea();
 		ideaTitleInput.value = "";
 		ideaBodyInput.value = "";
-		// disableBtn();
 	}
 }
 
 function makeNewIdea() {
-	var idea = new Idea( {
-		title: ideaTitleInput.value, 
-		body: ideaBodyInput.value, 
-		id: Date.now(),
-	});
+	var idea = new Idea({ id: Date.now(), title :ideaTitleInput.value, body: ideaBodyInput.value });
 	globalArr.push(idea);
 	appendNewCard(idea);
 	idea.setLocalStorage(globalArr);
-	console.log('Hi');
 }
-
-
 
 function ideaCardActions(e) {
 	e.preventDefault();
@@ -54,7 +69,6 @@ function deleteCard(e) {
 	if (e.target.classList.contains('img_btn-exit')) {
 		e.target.parentNode.parentNode.remove();
 	}
-// deleteFromStorage(globalArr);
 }
 
 function appendNewCard(idea) {
@@ -91,5 +105,3 @@ function favoriteIdea(e) {
 		inactiveStar.classList.remove('hidden');
 	}
 }
-
-// filter prototype - deleting things
