@@ -171,9 +171,8 @@ body {
 
 }
 .box_card {
-	border: 1px solid #1F1F3D;
 	justify-content: space-between;
-	height: 50%;
+	height: 80%;
 	margin: 2%;
 	width: 29%;
 }
@@ -187,6 +186,8 @@ body {
 }
 
 .box_card-main {
+	border-left: 1px solid #1F1F3D;
+	border-right: 1px solid #1F1F3D; 
 	background-color: #FFFFFF;
 	height: 200px;
 	padding: 3%;
@@ -202,6 +203,9 @@ body {
 
 .box_card-footer {
 	background-color: #353567;
+	border-bottom: 1px solid #1F1F3D;
+	border-left: 1px solid #1F1F3D;
+	border-right: 1px solid #1F1F3D;
 	color: #FFFFFF;
 	display: flex;
 	align-items: center;
@@ -218,4 +222,8 @@ body {
 .box_card-icon {
 	height: 10%;
 	width: 10%;
+}
+
+.hidden {
+	display: none;
 }
