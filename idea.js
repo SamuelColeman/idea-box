@@ -1,22 +1,15 @@
 class Idea {
-	constructor(title, body, id) {
-		this.id = id;
-		this.title = title;
-		this.body = body;
+	constructor(ideaObj) {
+		this.id = ideaObj.id;
+		this.title = ideaObj.title;
+		this.body = ideaObj.body;
 		this.star = false;
 		this.quality = 0;
 	}
 
-
-	setLocalStorage() {
-		localStorage.setItem(this.id, JSON.stringify(this));
+	setLocalStorage(array) {
+		localStorage.setItem('ideaArr', JSON.stringify(array));
 		console.log('working')
 	}
-
-	getLocalStorage() {
-		JSON.parse(localStorage.getItem(this.id));
-		console.log('isworking')
-	}
-
 }
 
