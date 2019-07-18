@@ -3,8 +3,11 @@ var globalArr = JSON.parse(localStorage.getItem('ideaArr')) || [];
 var ideaTitleInput = document.querySelector('.idea_title-input');
 var ideaBodyInput = document.querySelector('.idea_body-input');
 var ideaContainer = document.querySelector('.idea');
+var box = document.querySelector('.box');
+var boxCard = document.querySelector('.box-card');
 
 ideaContainer.addEventListener('click', targetSaveBtn);
+box.addEventListener('click', ideaCardActions);
 
 // function disableBtn() {
 // 	var ideaSaveBtn = document.querySelector('.idea_save-btn')
@@ -39,17 +42,15 @@ function makeNewIdea() {
 	console.log('Hi');
 }
 
-var box = document.querySelector('.box');
-var boxCard = document.querySelector('.box-card');
 
-box.addEventListener('click', function() {
-	deleteCard()
-	// favoriteIdea()
-	});
+
+function ideaCardActions(e) {
+	e.preventDefault();
+	deleteCard(e);
+	favoriteIdea(e);
+}
 
 function deleteCard(e) {
-	e.preventDefault();
-	var targId = e.target.parentNode.parentNode.id;
 	if (e.target.classList.contains('img_btn-exit')) {
 		e.target.parentNode.parentNode.remove();
 	}
@@ -79,20 +80,16 @@ function appendNewCard(idea) {
 		</section>`);
 }
 
-// function favoriteIdea(e) {
-// 	var favoritedIdea = document.querySelector('.img_btn-starActive');
-// 	var inactiveStar = document.querySelector('.img_btn-star');
-// 	if (e.target.classList.contains('img_btn-star')) {
-// 		favoritedIdea.classList.remove('hidden');
-// 		inactiveStar.classList.add('hidden');
-// 	} else {
-// 		favoritedIdea.classList.add('hidden');
-// 		inactiveStar.classList.remove('hidden');
-// 	}
-// }
-
-
-
-// ideaArr[0].id 
+function favoriteIdea(e) {
+	var favoritedIdea = document.querySelector('.img_btn-starActive');
+	var inactiveStar = document.querySelector('.img_btn-star');
+	if (e.target.classList.contains('img_btn-star')) {
+		favoritedIdea.classList.remove('hidden');
+		inactiveStar.classList.add('hidden');
+	} else {
+		favoritedIdea.classList.add('hidden');
+		inactiveStar.classList.remove('hidden');
+	}
+}
 
 // filter prototype - deleting things
