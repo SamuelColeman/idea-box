@@ -4,14 +4,26 @@ var ideaTitleInput = document.querySelector('.idea_title-input');
 var ideaBodyInput = document.querySelector('.idea_body-input');
 var ideaContainer = document.querySelector('.idea');
 
-// ideaTitleInput.addEventListener('keyup', )
-
 ideaContainer.addEventListener('click', targetSaveBtn);
+
+// function disableBtn() {
+// 	var ideaSaveBtn = document.querySelector('.idea_save-btn')
+// 	if (ideaTitleInput.value === '' || ideaBodyInput.value === '') {
+// 		ideaSaveBtn.disabled = true;
+// 	} else {
+// 		ideaSaveBtn.disabled = false;
+// 	}
+// }
+// disableBtn();
+
 
 function targetSaveBtn(e) {
 	e.preventDefault();
 	if (e.target.classList.contains('idea_save-btn')) {
 		makeNewIdea();
+		ideaTitleInput.value = "";
+		ideaBodyInput.value = "";
+		// disableBtn();
 	}
 }
 
@@ -21,25 +33,29 @@ function makeNewIdea() {
 		body: ideaBodyInput.value, 
 		id: Date.now(),
 	});
-	// ideaArr.push(idea);
 	globalArr.push(idea);
 	appendNewCard(idea);
 	idea.setLocalStorage(globalArr);
 	console.log('Hi');
 }
+
 var box = document.querySelector('.box');
+var boxCard = document.querySelector('.box-card');
 
 box.addEventListener('click', deleteCard);
 
 function deleteCard(e) {
+	e.preventDefault();
+	var targId = e.target.parentNode.parentNode.id;
 	if (e.target.classList.contains('img_btn-exit')) {
 		e.target.parentNode.parentNode.remove();
 	}
+// deleteFromStorage(globalArr);
 }
 
 function appendNewCard(idea) {
 	box.insertAdjacentHTML('afterbegin',
-				`<section class="box_card" data-id=${idea.id}>
+				`<section class="box_card" id=${idea.id}>
 			<header class="box_card-header">
 				<!-- images that are buttons -->
 				<input class="img_btn-star box_card-icon" src="images/star.svg" type="image">
@@ -61,6 +77,8 @@ function appendNewCard(idea) {
 			</footer>
 		</section>`);
 }
+
+
 
 
 // ideaArr[0].id 
