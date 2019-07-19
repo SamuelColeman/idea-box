@@ -36,7 +36,6 @@ function reassignClass( id, title, body, star, quality, i){
 
 
 function reinstantiateCard(){
-// 		// take global array send back through appendNewCard()
 	globalArr.forEach(function(idea){
 		appendNewCard(idea);
 	}) 
@@ -65,15 +64,39 @@ function ideaCardActions(e) {
 	favoriteIdea(e);
 }
 
-function deleteCard(e) {
-	if (e.target.classList.contains('img_btn-exit')) {
-		e.target.parentNode.parentNode.remove();
-	}
+// function deleteCard(event) {
+// 	if (event.target.classList.contains('img_btn-exit')) {
+// 		event.target.parentNode.parentNode.remove();
+// 	}
+// }
+
+
+function deleteCard(event) {
+  var cardIndex = findIndex(event);
+  if (event.target.classList.contains('img_btn-exit')) {
+    event.target.parentNode.parentNode.remove();
+    console.log(globalArr[cardIndex]);
+    globalArr[cardIndex].deleteFromStorage(cardIndex);
+  }
+}
+
+function findID(event) {
+  return parseInt(event.target.closest('.box_card').dataset.id);
+
+}
+
+function findIndex(event) {
+  var id = findID(event);
+  for (var i = 0; i < globalArr.length; i++) {
+    if (id === globalArr[i].id) {
+      return parseInt(i);
+    }
+  }
 }
 
 function appendNewCard(idea) {
 	box.insertAdjacentHTML('afterbegin',
-				`<section class="box_card" id=${idea.id}>
+				`<section class="box_card" data-id=${idea.id}>
 			<header class="box_card-header">
 				<input class="img_btn-star box_card-icon" src="images/star.svg" type="image">
 				<input class="img_btn-starActive box_card-icon hidden" src="images/star-active.svg" type="image">

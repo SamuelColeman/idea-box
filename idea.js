@@ -9,18 +9,14 @@ class Idea {
 
 	setLocalStorage(array) {
 		localStorage.setItem('ideaArr', JSON.stringify(array));
-		console.log('working')
 	}
 
-// 	deleteFromStorage(array) {
-// 		console.log(targId)
-// 		for (i=0; i<array.length; i++) {
-// 		if (targId === array[i].id) {
-// 			console.log(array[i].id)
-// 			localStorage.removeItem(array[i]);
-// 		}
-// 	}
-// }
+	 deleteFromStorage(cardIndex) {
+    globalArr.splice(cardIndex, 1);
+    this.setLocalStorage(globalArr);
+  }
+
+
 
 }
 
