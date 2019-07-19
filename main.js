@@ -128,3 +128,4 @@ function favoriteIdea(e) {
 		inactiveStar.classList.remove('hidden');
 	}
 }
+
