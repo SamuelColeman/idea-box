@@ -227,3 +227,8 @@ body {
 .hidden {
 	display: none;
 }
+
+.box_idea-placeholder {
+	padding: 10px;
+	font-size: 20px;
+}
