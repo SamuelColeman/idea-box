@@ -80,6 +80,9 @@ function makeNewIdea() {
 function ideaCardActions(e) {
 	e.preventDefault();
 	deleteCard(e);
+	favoriteIdeaStarToggle(event);
+}
+
 	favoriteIdea(e);
 	ideaPlaceholder();
 	}
@@ -108,11 +111,17 @@ function findIndex(event) {
 }
 
 function appendNewCard(idea) {
-	box.insertAdjacentHTML('afterbegin',
+	var star;
+	if (idea.star === true) {
+		star = 'images/star-active.svg';
+	} else {
+		star = 'images/star.svg';
+	}
+
+	box.insertAdjacentHTML('beforeend',
 				`<section class="box_card" data-id=${idea.id}>
 			<header class="box_card-header">
-				<input class="img_btn-star box_card-icon" src="images/star.svg" type="image">
-				<input class="img_btn-starActive box_card-icon hidden" src="images/star-active.svg" type="image">
+				<input class="img_btn-star box_card-icon" src="${star}" type="image">
 				<input class="img_btn-exit box_card-icon" src="images/delete.svg" type="image">
 			</header>
 			<section class="box_card-main">
@@ -130,17 +139,20 @@ function appendNewCard(idea) {
 		</section>`);
 }
 
-function favoriteIdea(e) {
-	var favoritedIdea = document.querySelector('.img_btn-starActive');
-	var inactiveStar = document.querySelector('.img_btn-star');
-	if (e.target.classList.contains('img_btn-star')) {
-		favoritedIdea.classList.remove('hidden');
-		inactiveStar.classList.add('hidden');
+function favoriteIdeaStarToggle(event) {
+	var activeStar = 'images/star-active.svg';
+	var inactiveStar = 'images/star.svg';
+	var cardIndex = findIndex(event);
+	globalArr[cardIndex].star = !globalArr[cardIndex].star;
+	if (globalArr[cardIndex].star === true) {
+		event.target.src = activeStar;
+		// globalArr[cardIndex].setLocalStorage(globalArr);
 	} else {
-		favoritedIdea.classList.add('hidden');
-		inactiveStar.classList.remove('hidden');
+		event.target.src = inactiveStar;
 	}
 }
+
+
 
 function disableBtn() {
 	if (ideaTitleInput.value !== "" && ideaBodyInput.value !== "") {
