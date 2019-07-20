@@ -3,7 +3,7 @@ class Idea {
 		this.id = ideaObj.id;
 		this.title = ideaObj.title;
 		this.body = ideaObj.body;
-		this.star = false;
+		this.star = ideaObj.star || false;
 		this.quality = 0;
 	}
 
@@ -12,12 +12,14 @@ class Idea {
 	}
 
 
-	 deleteFromStorage(cardIndex) {
+	deleteFromStorage(cardIndex) {
     globalArr.splice(cardIndex, 1);
     this.setLocalStorage(globalArr);
   }
 
+  	// updateIdeaStorage() {
 
+  	// }
 
 }
 
