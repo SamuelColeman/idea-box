@@ -17,9 +17,6 @@ class Idea {
     this.setLocalStorage(globalArr);
   }
 
-  	// updateIdeaStorage() {
-
-  	// }
 
 }
 
