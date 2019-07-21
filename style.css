@@ -94,6 +94,7 @@ body {
 .quality_new-input {
 	margin: 5px 10px 15px 20px;
 	height: 35px;
+	border: 1px #353567;
 	width: 85%;
 }
 
@@ -172,7 +173,7 @@ body {
 }
 .box_card {
 	justify-content: space-between;
-	height: 80%;
+	height: 56%;
 	margin: 2%;
 	width: 29%;
 }
@@ -229,6 +230,10 @@ body {
 }
 
 .box_idea-placeholder {
-	padding: 10px;
-	font-size: 20px;
+    width:100%;
+    padding:40px;
+    font-weight: 700;
+    font-size: 75px;
+    text-align: center;
+    color: #A9AAD2;
 }
