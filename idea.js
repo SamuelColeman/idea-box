@@ -7,14 +7,35 @@ class Idea {
 		this.quality = 0;
 	}
 
-	setLocalStorage(array) {
-		localStorage.setItem('ideaArr', JSON.stringify(array));
+	setLocalStorage() {
+		localStorage.setItem('ideaArr', JSON.stringify(globalArr));
 	}
 
 	deleteFromStorage(cardIndex) {
-    globalArr.splice(cardIndex, 1);
-    this.setLocalStorage(globalArr);
-  }
-  
+    	globalArr.splice(cardIndex, 1);
+    	this.setLocalStorage();
+  	}
+
+  	updateIdea(newTitle) {
+  		this.title = newTitle;
+  		this.setLocalStorage(globalArr);
+  		console.log('HEllO', globalArr);
+  	}
+
+  	// updateIdeaBody(newBody) {
+  	// 	this.body = newBody;
+  	// }
 }
 
+//   	updateIdea(newValue) {
+//   		this.title = newTitle;
+
+//   		// globalArr.method();
+//   		// this.setLocalStorage(globalArr);
+//   	}
+
+
+// figure out which value is being targeted
+// Update specific value
+// update global array with idea[index]
+// set local storage

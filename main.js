@@ -9,9 +9,10 @@ var ideaSaveBtn        = document.querySelector('.idea_save-btn');
 var ideaTitleInput     = document.querySelector('.idea_title-input');
 var inputs             = document.querySelectorAll('input');
 
-box.addEventListener('click', ideaCardActions);
+// box.addEventListener('click', ideaCardActions);
+box.addEventListener('keydown', isEnterKey);
 if (boxCardHeader) {
-	boxCardHeader.addEventListener('click', toggleStar);	
+	boxCardHeader.addEventListener('click', favoriteIdeaStarToggle);	
 }
 ideaContainer.addEventListener('click', clickSaveBtn);
 window.addEventListener('load', pageLoad);
@@ -22,13 +23,15 @@ function pageLoad(){
 	disableBtn();
 	ideaPlaceholder();
 }
+// Rename favoriteIdeaStarToggle to header something
+// boxCardHeader should invoke deleteCard() and favoriteIdeaStarToggle(event)
 
-function ideaCardActions(event) {
-	event.preventDefault();
-	deleteCard(event);
-	favoriteIdeaStarToggle(event);
-	ideaPlaceholder();
-}
+// function ideaCardActions(event) {
+// 	event.preventDefault();
+// 	deleteCard(event);
+// 	favoriteIdeaStarToggle(event);
+// 	ideaPlaceholder();
+// }
 
 function ideaPlaceholder() {
 	if (globalArr.length < 1) {
@@ -39,6 +42,7 @@ function ideaPlaceholder() {
 }
 
 function persistedIdeas(){
+
 	for (var i = 0; i < globalArr.length; i++){
 		var id      = globalArr[i].id;
 		var title   = globalArr[i].title;
@@ -169,3 +173,49 @@ function disableBtn() {
  			ideaSaveBtn.disabled = true;
  	}
 }
+
+function isEnterKey(event) {
+	if (event.keyCode === 13) {
+		event.preventDefault();
+		onEnterKey(event);
+	}
+}
+// save edited title or something
+function onEnterKey (event) {
+	var cardIndex = findIndex(event);
+	var editedIdeaTitle = event.target.closest('.box_card-title').innerText;
+	globalArr[cardIndex].updateIdea(editedIdeaTitle);
+		console.log(globalArr[cardIndex]);
+}
+
+// ADD STAR TO ON ENTER KEY THING
+// One event listener
+// If body updated,
+// 	Update body value with new body value
+// If title updated
+// 	Update title value with new title value
+// Update idea in the array
+// Update array in local storage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
