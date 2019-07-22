@@ -16,10 +16,16 @@ class Idea {
     	this.setLocalStorage();
   	}
 
-  	updateIdea(newTitle) {
+  	updateIdeaTitle(newTitle) {
   		this.title = newTitle;
   		this.setLocalStorage(globalArr);
-  		console.log('HEllO', globalArr);
+  		console.log(globalArr);
+  	}
+
+  	updateIdeaBody(newBody) {
+  		this.body = newBody;
+  		this.setLocalStorage(globalArr);
+  		console.log(globalArr);
   	}
 
   	// updateIdeaBody(newBody) {
