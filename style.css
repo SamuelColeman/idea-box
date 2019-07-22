@@ -222,6 +222,7 @@ body {
 }
 
 .box_card-quality {
+	font-size: 85%;
 	font-weight: 700;
 	margin: 0;
 }
