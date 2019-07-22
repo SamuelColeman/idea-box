@@ -8,7 +8,7 @@ var ideaContainer      = document.querySelector('.idea');
 var ideaSaveBtn        = document.querySelector('.idea_save-btn');
 var ideaTitleInput     = document.querySelector('.idea_title-input');
 var inputs             = document.querySelectorAll('input');
-var ideaSearchInput		 = document.querySelector('.idea_search-input');
+var ideaSearchInput	   = document.querySelector('.idea_search-input');
 
 box.addEventListener('click', ideaCardActions);
 box.addEventListener('keydown', isEnterKey);
@@ -221,6 +221,7 @@ function filterSearch() {
 	var searchStr = ideaSearchInput.value.toUpperCase();
 	var newArr = globalArr.filter(function(search){
 	return (search.title.toUpperCase().includes(searchStr));
+	return (search.title.toUpperCase().includes(searchStr) || search.body.toUpperCase().includes(searchStr));
 	})
 		box.innerHTML = '';
 		newArr.map(function(search) {

@@ -31,7 +31,11 @@ class Idea {
   	// updateIdeaBody(newBody) {
   	// 	this.body = newBody;
   	// }
+<<<<<<< HEAD
 } 
+=======
+}
+>>>>>>> 248588fd003208da0139538db8ad863b204cd29b
 
 //   	updateIdea(newValue) {
 //   		this.title = newTitle;
