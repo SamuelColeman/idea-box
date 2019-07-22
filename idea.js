@@ -14,7 +14,6 @@ class Idea {
 	deleteFromStorage(cardIndex) {
     globalArr.splice(cardIndex, 1);
     this.setLocalStorage(globalArr);
-  }
-  
+  } 
 }
 

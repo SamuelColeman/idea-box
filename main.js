@@ -8,6 +8,7 @@ var ideaContainer      = document.querySelector('.idea');
 var ideaSaveBtn        = document.querySelector('.idea_save-btn');
 var ideaTitleInput     = document.querySelector('.idea_title-input');
 var inputs             = document.querySelectorAll('input');
+var ideaSearchInput		 = document.querySelector('.idea_search-input');
 
 box.addEventListener('click', ideaCardActions);
 if (boxCardHeader) {
@@ -15,6 +16,7 @@ if (boxCardHeader) {
 }
 ideaContainer.addEventListener('click', clickSaveBtn);
 window.addEventListener('load', pageLoad);
+ideaSearchInput.addEventListener('keyup', filterSearch);
 
 function pageLoad(){
 	persistedIdeas();
@@ -168,4 +170,15 @@ function disableBtn() {
  		} else {
  			ideaSaveBtn.disabled = true;
  	}
+}
+
+function filterSearch() {
+	var searchStr = ideaSearchInput.value.toUpperCase();
+	var newArr = globalArr.filter(function(search){
+	return (search.title.toUpperCase().includes(searchStr));
+	})
+		box.innerHTML = '';
+		newArr.map(function(search) {
+			appendNewCard(search);
+	});
 }
