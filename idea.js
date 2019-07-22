@@ -31,7 +31,7 @@ class Idea {
   	// updateIdeaBody(newBody) {
   	// 	this.body = newBody;
   	// }
-}
+} 
 
 //   	updateIdea(newValue) {
 //   		this.title = newTitle;
