@@ -4,7 +4,8 @@ class Idea {
 		this.title   = ideaObj.title;
 		this.body    = ideaObj.body;
 		this.star    = ideaObj.star || false;
-		this.quality = 0;
+		this.qualities = ["Swill", "Plausible", "Genius"];
+    this.quality = ideaObj.quality;
 	}
 
 	setLocalStorage() {

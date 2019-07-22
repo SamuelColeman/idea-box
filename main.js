@@ -1,6 +1,5 @@
 var globalArr          = JSON.parse(localStorage.getItem('ideaArr')) || [];
 var box                = document.querySelector('.box');
-var boxCard            = document.querySelector('.box_card');
 var boxCardHeader      = document.querySelector('.box_card-header');
 var boxIdeaPlaceholder = document.querySelector('.box_idea-placeholder');
 var ideaBodyInput      = document.querySelector('.idea_body-input');
@@ -9,6 +8,7 @@ var ideaSaveBtn        = document.querySelector('.idea_save-btn');
 var ideaTitleInput     = document.querySelector('.idea_title-input');
 var inputs             = document.querySelectorAll('input');
 var ideaSearchInput		 = document.querySelector('.idea_search-input');
+
 
 box.addEventListener('click', ideaCardActions);
 box.addEventListener('keydown', isEnterKey);
@@ -25,15 +25,49 @@ function pageLoad(){
 	disableBtn();
 	ideaPlaceholder();
 }
-// Rename favoriteIdeaStarToggle to header something
-// boxCardHeader should invoke deleteCard() and favoriteIdeaStarToggle(event)
 
-// GET THIS vvv TO WORK
-// function ideaHeaderActions(event) {
-// 	event.preventDefault();
-// 	deleteCard(event);
-// 	favoriteIdeaStarToggle(event);
-// }
+// var boxCard = document.querySelector('.box_card');
+var assignUp =  document.querySelector('.footer_quality-up');
+var assignDown =  document.querySelector('.footer_quality-down');
+
+box.addEventListener('click', increaseQuality);
+box.addEventListener('click', decreaseQuality);
+
+function increaseQuality(event) {
+    var cardIndex = findIndex(event);
+    var assignUp = event.target.closest('.footer_quality-up');
+
+    if (event.target === assignUp) {
+        var currentQuality = globalArr[cardIndex].quality;
+         if (currentQuality < 2) {
+         	currentQuality++;
+         	globalArr[cardIndex].quality = currentQuality;
+         	globalArr[cardIndex].setLocalStorage();
+         }
+    }
+    displayQuality(event, cardIndex);
+}
+
+function decreaseQuality(event) {
+    var cardIndex = findIndex(event);
+    var assignDown = event.target.closest('.footer_quality-down');
+ if (event.target === assignDown) {
+        var currentQuality = globalArr[cardIndex].quality;
+         if (currentQuality > 0) {
+         	currentQuality--;
+         	globalArr[cardIndex].quality = currentQuality;
+         	globalArr[cardIndex].setLocalStorage();
+         }
+       }
+       displayQuality(event, cardIndex);
+}
+
+function displayQuality(event, cardIndex) {
+	var currentQuality = globalArr[cardIndex].quality;
+	var qualityName = globalArr[cardIndex].qualities[currentQuality];
+	event.target.closest('footer').querySelector('.box_card-value').innerText = qualityName;
+}
+
 
 function ideaCardActions(event) {
 	event.preventDefault();
@@ -138,7 +172,8 @@ function appendNewCard(idea) {
 	} else {
 		star = 'images/star.svg';
 	}
-
+	var quality = idea.qualities[idea.quality];
+	
 	box.insertAdjacentHTML('beforeend',
 				`<section class="box_card" data-id=${idea.id}>
 			<header class="box_card-header">
@@ -152,7 +187,7 @@ function appendNewCard(idea) {
 			<footer class="box_card-footer">
 				<input class="footer_quality-up box_card-icon" src="images/upvote.svg" type="image">
 				<p class="box_card-quality">Quality:
-					<span class="box_card-value">Swill
+					<span class="box_card-value">${quality}
 					</span>
 				</p>
 				<input class="footer_quality-down box_card-icon" src="images/downvote.svg" type="image">
@@ -227,3 +262,12 @@ function filterSearch() {
 			appendNewCard(search);
 	});
 }
+// Rename favoriteIdeaStarToggle to header something
+// boxCardHeader should invoke deleteCard() and favoriteIdeaStarToggle(event)
+
+// GET THIS vvv TO WORK
+// function ideaHeaderActions(event) {
+// 	event.preventDefault();
+// 	deleteCard(event);
+// 	favoriteIdeaStarToggle(event);
+// }
