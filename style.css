@@ -237,6 +237,10 @@ body {
 }
 
 .box_idea-placeholder {
-	padding: 10px;
-	font-size: 20px;
+    width:100%;
+    padding:40px;
+    font-weight: 700;
+    font-size: 75px;
+    text-align: center;
+    color: #A9AAD2;
 }

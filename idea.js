@@ -5,7 +5,7 @@ class Idea {
 		this.body    = ideaObj.body;
 		this.star    = ideaObj.star || false;
 		this.qualities = ["Swill", "Plausible", "Genius"];
-    this.quality = ideaObj.quality;
+    this.quality = ideaObj.quality || 0;
 	}
 
 	setLocalStorage() {

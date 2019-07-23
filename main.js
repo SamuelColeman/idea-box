@@ -40,6 +40,7 @@ function increaseQuality(event) {
     if (event.target === assignUp) {
         var currentQuality = globalArr[cardIndex].quality;
          if (currentQuality < 2) {
+  console.log('hi')
          	currentQuality++;
          	globalArr[cardIndex].quality = currentQuality;
          	globalArr[cardIndex].setLocalStorage();
