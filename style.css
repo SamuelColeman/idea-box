@@ -2,7 +2,6 @@
 	margin: 0px;
 	padding: 0px;
 	font-family: 'Open Sans', sans-serif;
-
 }
 
 body {
@@ -52,6 +51,7 @@ body {
 	height: 1px;
 	width: 100%;
 }
+
 .quality {
 }
 
@@ -126,7 +126,7 @@ body {
 	font-size: 20px;
 	height: 40px;
 	padding-left: 10px;
-	width: 100%;
+	width: 98%;
 }
 
 .idea_body-input {
@@ -137,7 +137,7 @@ body {
 	margin: 2% 0;
 	overflow: scroll;
 	padding-left: 10px;
-	width: 100%;
+	width: 98%;
 }
 
 .idea_save-btn {
@@ -254,6 +254,4 @@ body {
     font-size: 75px;
     text-align: center;
     color: #A9AAD2;
-
 }
-
