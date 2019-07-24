@@ -52,6 +52,8 @@ body {
 	height: 1px;
 	width: 100%;
 }
+.quality {
+}
 
 .quality_swill-btn,
 .quality_plausible-btn,
@@ -61,10 +63,18 @@ body {
 	color: #ffffff;
 	cursor: pointer;
 	font-size: 20px;
-	height: 30px;
-	padding: 20px;
+	height: 40px;
+	padding:  10px 10px 10px 20px;
 	text-align: left;
 	width: 100%;
+}
+
+.quality_genius-btn:hover,
+.quality_plausible-btn:hover,
+.quality_swill-btn:hover {
+	background-color: #D14119;
+	border-left: 8px #F58E72 solid;
+	padding: 11px;
 }
 
 .quality_title {
@@ -93,6 +103,7 @@ body {
 .quality_new-input {
 	height: 35px;
 	margin: 5px 10px 15px 20px;
+	border: 1px #353567;
 	width: 85%;
 }
 
