@@ -1,20 +1,24 @@
 var globalArr          = JSON.parse(localStorage.getItem('ideaArr')) || [];
+var assignDown 		   = document.querySelector('.footer_quality-down');
+var assignUp		   = document.querySelector('.footer_quality-up');
 var box                = document.querySelector('.box');
 var boxCardHeader      = document.querySelector('.box_card-header');
+var boxCardFooter 	   = document.querySelector('.box_card-footer');
 var boxIdeaPlaceholder = document.querySelector('.box_idea-placeholder');
 var ideaBodyInput      = document.querySelector('.idea_body-input');
 var ideaContainer      = document.querySelector('.idea');
 var ideaSaveBtn        = document.querySelector('.idea_save-btn');
 var ideaTitleInput     = document.querySelector('.idea_title-input');
 var inputs             = document.querySelectorAll('textarea');
-var ideaSearchInput		 = document.querySelector('.idea_search-input');
+var ideaSearchInput    = document.querySelector('.idea_search-input');
 
 
-box.addEventListener('click', ideaCardActions);
+box.addEventListener('click', boxEventHandler);
+
 box.addEventListener('keydown', isEnterKey);
-if (boxCardHeader) {
-	boxCardHeader.addEventListener('click', favoriteIdeaStarToggle);	
-};
+// box.addEventListener('click', increaseQuality);
+// box.addEventListener('click', decreaseQuality)
+
 ideaContainer.addEventListener('click', clickSaveBtn);
 window.addEventListener('load', pageLoad);
 ideaSearchInput.addEventListener('keyup', filterSearch);
@@ -26,11 +30,22 @@ function pageLoad(){
 	ideaPlaceholder();
 };
 
-var assignUp =  document.querySelector('.footer_quality-up');
-var assignDown =  document.querySelector('.footer_quality-down');
-
-box.addEventListener('click', increaseQuality);
-box.addEventListener('click', decreaseQuality);
+function boxEventHandler(event) {
+	event.preventDefault();
+	ideaPlaceholder();
+	if (event.target.closest('.footer_quality-up')) {
+		increaseQuality(event);
+	}
+	if (event.target.closest('.footer_quality-down')) {
+		decreaseQuality(event);
+	}
+	if (event.target.closest('.img_btn-star')) {
+		favoriteIdeaStarToggle(event);
+	}
+	if (event.target.classList.contains('img_btn-exit')) {
+		deleteCard(event);
+	}
+}
 
 function increaseQuality(event) {
     var cardIndex = findIndex(event);
@@ -67,12 +82,6 @@ function displayQuality(event, cardIndex) {
 };
 
 
-function ideaCardActions(event) {
-	event.preventDefault();
-	deleteCard(event);
-	favoriteIdeaStarToggle(event);
-	ideaPlaceholder();
-};
 
 function ideaPlaceholder() {
 	if (globalArr.length < 1) {
