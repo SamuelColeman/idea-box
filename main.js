@@ -26,7 +26,6 @@ function pageLoad(){
 	ideaPlaceholder();
 }
 
-// var boxCard = document.querySelector('.box_card');
 var assignUp =  document.querySelector('.footer_quality-up');
 var assignDown =  document.querySelector('.footer_quality-down');
 
@@ -229,7 +228,7 @@ function isEnterKey(event) {
 		}
 	}
 }
-// save edited title or something
+
 function saveEditedTitle (event) {
 	var cardIndex = findIndex(event);
 	var editedIdeaTitle = event.target.closest('.box_card-title').innerText;
@@ -244,14 +243,6 @@ function saveEditedBody (event) {
 		console.log(globalArr[cardIndex]);
 }
 
-// ADD STAR TO ON ENTER KEY THING
-// One event listener
-// If body updated,
-// 	Update body value with new body value
-// If title updated
-// 	Update title value with new title value
-// Update idea in the array
-// Update array in local storage
 
 function filterSearch() {
 	var searchStr = ideaSearchInput.value.toUpperCase();
@@ -263,12 +254,3 @@ function filterSearch() {
 			appendNewCard(search);
 	});
 }
-// Rename favoriteIdeaStarToggle to header something
-// boxCardHeader should invoke deleteCard() and favoriteIdeaStarToggle(event)
-
-// GET THIS vvv TO WORK
-// function ideaHeaderActions(event) {
-// 	event.preventDefault();
-// 	deleteCard(event);
-// 	favoriteIdeaStarToggle(event);
-// }
