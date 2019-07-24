@@ -2,14 +2,13 @@
 	margin: 0px;
 	padding: 0px;
 	font-family: 'Open Sans', sans-serif;
-
 }
 
 body {
 	display: grid;
 	font-family: 'Open Sans', sans-serif;
 	grid-template-columns: 20% auto;
-	grid-template-rows: 50% auto;
+	grid-template-rows: 55% auto;
 	grid-template-areas: 
 			"sidebar idea idea" 
 			"sidebar card card";
@@ -17,11 +16,13 @@ body {
 	background-color:#1F1F3D;
 }
 
+/* Navigation Menu */
+
 .navBar {
-	display:block;
-	grid-area: sidebar;
 	background-color: #1F1F3D;
 	color:#ffffff;	
+	display:block;
+	grid-area: sidebar;
 }
 
 .navBar_header {
@@ -79,6 +80,7 @@ body {
 	font-weight: 700;
 	padding: 20px 20px 5px 20px;
 }
+
 .quality_new-btn {
 	background-color: #5356A4;
 	border: 1px #353567;
@@ -92,17 +94,19 @@ body {
 }
 
 .quality_new-title {
-	padding: 20px 20px 5px 20px;
 	font-size: 15px;
 	font-weight: 700;
+	padding: 20px 20px 5px 20px;
 }
 
 .quality_new-input {
+	border: 1px #353567;
 	height: 35px;
 	margin: 5px 10px 15px 20px;
-	border: 1px #353567;
 	width: 85%;
 }
+
+/* Idea Generator Section */
 
 .idea {
 	background-color: #A9AAD2;
@@ -123,7 +127,8 @@ body {
 	font-size: 20px;
 	height: 40px;
 	padding-left: 10px;
-	width: 100%;
+	padding-top: 10px;
+	width: 98%;
 }
 
 .idea_body-input {
@@ -134,7 +139,8 @@ body {
 	margin: 2% 0;
 	overflow: scroll;
 	padding-left: 10px;
-	width: 100%;
+	padding-top: 10px;
+	width: 98%;
 }
 
 .idea_save-btn {
@@ -177,11 +183,13 @@ body {
 	padding-left: 10px;
 }
 
+/* List of Idea Cards */
+
 .box {
-	grid-area: card;
 	background-color: #EAEAF4;
 	display: flex;
 	flex-wrap: wrap;
+	grid-area: card;
 	width: 100%;
 }
 
@@ -217,13 +225,13 @@ body {
 }
 
 .box_card-footer {
-	display: flex;
 	align-items: center;
-	background-color: #353567;
+	background-color: #5356A4;
 	border-bottom: 1px solid #1F1F3D;
 	border-left: 1px solid #1F1F3D;
 	border-right: 1px solid #1F1F3D;
 	color: #FFFFFF;
+	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	padding: .5% 0;
@@ -246,13 +254,19 @@ body {
 
 
 .box_idea-placeholder {
-    width:100%;
-    padding:40px;
-    font-weight: 700;
-    font-size: 75px;
-    text-align: center;
     color: #A9AAD2;
+    font-size: 75px;
+    font-weight: 700;
+    padding:40px;
+    text-align: center;
+     width:100%;
 }
+
+.disabled {
+	cursor: not-allowed;
+}
+
+/* Media Queries */
 
 @media screen and (max-width: 915px) {
 	body {
@@ -483,5 +497,4 @@ body {
 		margin: 3% auto;
 		width: 90%;
 	}
-
 

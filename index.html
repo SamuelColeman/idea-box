@@ -4,28 +4,28 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>IdeaBox</title>
 </head>
 <body>
-	<container id="navBar_hamburger-menu">
-		<container class="navBar">
+	<container id="navBar_hamburger-menu" alt="Mobile Navigation Menu">
+		<container class="navBar" alt="Desktop Navigation Menu">
 			<button type="image" class="hamburger_btn hidden"> <img class="hamburger_btn-img" src= "images/menu.svg" alt = "hamburger menu"/> 
       </button>
 			<header class="navBar_header">IdeaBox Redux
 			</header>
 			<div class="navBar_hamberger-divide">
 			<div class="navBar_border"></div>
-			<section class="navBar_star">
+			<section class="navBar_star" alt="Filter displayed ideas by starred or not starred">
 				<p class="navBar_star-title">Filter Starred Ideas</p>
 				<button class="navBar_star-button" type="button">Show Starred Ideas</button>
 			</section>
 			<div class="navBar_border"></div>
-			<section class="quality">
+			<section class="quality" alt="Filter displayed ideas by their quality level">
 				<p class="quality_title">Filter by Quality</p>
 				<button class="quality_swill-btn" type="button">Swill</button>
 				<button class="quality_plausible-btn" type="button">Plausible</button>
 				<button class="quality_genius-btn" type="button">Genius</button>
-				<form class="quality_form">
+				<form class="quality_form" alt="Create a new idea quality catergory here">
 					<p class="quality_new-title">New Quality</p>
 					<input class="quality_new-input" type="text">
 					<button class="quality_new-btn" type="button">Add New Quality</button>
@@ -35,25 +35,25 @@
 		</div>
 		</container>
 	</container>
-	<container class="idea">
+	<container class="idea" alt="Create a new idea here">
 		<form class="idea_form">
 			<section class="idea_title">
 				<p class="idea_title-name">Title</p>
-				<input class="idea_title-input" type="text" placeholder="What's Your Idea?">
+				<textarea class="idea_title-input" type="text" placeholder="What's Your Idea?"></textarea>
 			</section>
 			 <section class="idea_body">
 			 	<p class="idea_body-title">Body</p>
-			 	<input class="idea_body-input" type="text" placeholder="Tell Me More!">
+			 	<textarea cols="40" rows="4" class="idea_body-input" type="text" placeholder="Tell Me More!"></textarea>
 			 </section>
-			 <button class="idea_save-btn" type="button">Save</button>
-		<section class="idea_search">
-			<button type="image" class="idea_search-icon"> <img src = "images/search.svg" alt = "Search Icon"/>
+			 <button class="idea_save-btn disabled" type="button">Save</button>
+		<section class="idea_search" alt="Sort through your ideas by their content">
+			<button type="image" class="idea_search-icon"> <img src= "images/search.svg" alt= "Search Icon"/>
 			</button>
 			<input class="idea_search-input" type="text" placeholder="Search ideas">
 		</section>
 		</form>
 	</container>
-	<container class="box">
+	<container class="box" alt="All of your ideas will be found here">
 		<p class="box_idea-placeholder">Enter An Idea!</p>
 	</container>
 </body>
