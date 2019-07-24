@@ -1,6 +1,6 @@
 var globalArr          = JSON.parse(localStorage.getItem('ideaArr')) || [];
-var assignDown 		   = document.querySelector('.footer_quality-down');
-var assignUp		   = document.querySelector('.footer_quality-up');
+var assignDown 			   = document.querySelector('.footer_quality-down');
+var assignUp		  		 = document.querySelector('.footer_quality-up');
 var box                = document.querySelector('.box');
 var boxCardHeader      = document.querySelector('.box_card-header');
 var boxCardFooter 	   = document.querySelector('.box_card-footer');
@@ -80,8 +80,8 @@ function reinstantiateCard(){
 };
 
 for (i=0; i < inputs.length; i++) {
-  	inputs[i].addEventListener('keyup', function () {
-  		disableBtn();
+  inputs[i].addEventListener('keyup', function () {
+  	disableBtn();
   	});
 };
 
@@ -103,7 +103,6 @@ function makeNewIdea() {
 		body:  ideaBodyInput.value 
 	});
 	globalArr.push(idea);
-	appendNewCard(idea);
 	idea.setLocalStorage(globalArr);
 };
 
@@ -151,11 +150,11 @@ function appendNewCard(idea) {
 	var quality = idea.qualities[idea.quality];
 	
 	box.insertAdjacentHTML('afterbegin',
-				`<section class="box_card" data-id=${idea.id}>
-			<header class="box_card-header">
-				<input class="img_btn-star box_card-icon" src="${star}" type="image">
-				<input class="img_btn-exit box_card-icon" src="images/delete.svg" type="image">
-			</header>
+		`<section class="box_card" data-id=${idea.id}>
+				<header class="box_card-header">
+					<input class="img_btn-star box_card-icon" src="${star}" type="image">
+					<input class="img_btn-exit box_card-icon" src="images/delete.svg" type="image">
+				</header>
 			<section class="box_card-main">
 				<p class="box_card-title" contenteditable="true">${idea.title}</p>
 				<p class="box_card-body" contenteditable="true">${idea.body}</p>
@@ -187,44 +186,36 @@ function favoriteIdeaStarToggle(event) {
 function isEnterKey(event) {
 	if (event.keyCode === 13) {
 		event.preventDefault();
-		if (event.target.closest('.box_card-title')) {
-			saveEditedTitle(event);
-		} else if (event.target.closest('.box_card-body')) {
-			saveEditedBody(event);
-		};
+		var title = event.target.closest('section').querySelector('.box_card-title').innerText;
+		var body = event.target.closest('section').querySelector('.box_card-body').innerText;
+		saveEditedText(event, title, body);
 	};
 };
 
-function saveEditedTitle (event) {
+function saveEditedText(event, title, body) {
 	var cardIndex = findIndex(event);
-	var editedIdeaTitle = event.target.closest('.box_card-title').innerText;
-	globalArr[cardIndex].updateIdeaTitle(editedIdeaTitle);
-};
-
-function saveEditedBody (event) {
-	var cardIndex = findIndex(event);
-	var editedIdeaBody = event.target.closest('.box_card-body').innerText;
-	globalArr[cardIndex].updateIdeaBody(editedIdeaBody);
-};
+	globalArr[cardIndex].updateIdeaTitle(title);
+	globalArr[cardIndex].updateIdeaBody(body);
+}
 
 function increaseQuality(event) {
-    var cardIndex = findIndex(event);
-    var currentQuality = globalArr[cardIndex].quality;
-    if (currentQuality < 2) {
-       currentQuality++;
-       globalArr[cardIndex].quality = currentQuality;
-       globalArr[cardIndex].setLocalStorage();
+  var cardIndex = findIndex(event);
+  var currentQuality = globalArr[cardIndex].quality;
+  if (currentQuality < 2) {
+    currentQuality++;
+    globalArr[cardIndex].quality = currentQuality;
+    globalArr[cardIndex].setLocalStorage();
     };
     displayQuality(event, cardIndex);
 };
 
 function decreaseQuality(event) {
-    var cardIndex = findIndex(event);
-    var currentQuality = globalArr[cardIndex].quality;
-    if (currentQuality > 0) {
-       currentQuality--;
-       globalArr[cardIndex].quality = currentQuality;
-       globalArr[cardIndex].setLocalStorage();
+  var cardIndex = findIndex(event);
+  var currentQuality = globalArr[cardIndex].quality;
+  if (currentQuality > 0) {
+    currentQuality--;
+    globalArr[cardIndex].quality = currentQuality;
+    globalArr[cardIndex].setLocalStorage();
     };
     displayQuality(event, cardIndex);
 };
