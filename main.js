@@ -24,6 +24,7 @@ function pageLoad(){
 	reinstantiateCard();
 	disableBtn();
 	ideaPlaceholder();
+  hamburger();
 }
 
 // var boxCard = document.querySelector('.box_card');
@@ -263,6 +264,32 @@ function filterSearch() {
 			appendNewCard(search);
 	});
 }
+
+function hamburger() {
+navBar_hamburger-menu.insertAdjacentHTML('afterbegin',`
+  <button type="image" class="hamburger_btn hidden"> <img class="hamburger_btn-img" src= "images/menu.svg" alt = "hamburger menu"/> 
+      </button>
+      <header class="navBar_header">IdeaBox Redux
+      </header>
+  <div class="navBar_border"></div>
+      <section class="navBar_star">
+        <p class="navBar_star-title">Filter Starred Ideas</p>
+        <button class="navBar_star-button" type="button">Show Starred Ideas</button>
+      </section>
+      <div class="navBar_border"></div>
+      <section class="quality">
+        <p class="quality_title">Filter by Quality</p>
+        <button class="quality_swill-btn" type="button">Swill</button>
+        <button class="quality_plausible-btn" type="button">Plausible</button>
+        <button class="quality_genius-btn" type="button">Genius</button>
+        <form class="quality_form">
+          <p class="quality_new-title">New Quality</p>
+          <input class="quality_new-input" type="text">
+          <button class="quality_new-btn" type="button">Add New Quality</button>
+        </form>
+      </section>
+      <div class="navBar_border"></div>`)
+};
 // Rename favoriteIdeaStarToggle to header something
 // boxCardHeader should invoke deleteCard() and favoriteIdeaStarToggle(event)
 
