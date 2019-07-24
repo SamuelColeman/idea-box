@@ -242,7 +242,8 @@ function saveEditedBody (event) {
 function filterSearch() {
 	var searchStr = ideaSearchInput.value.toUpperCase();
 	var newArr = globalArr.filter(function(search){
-	return (search.title.toUpperCase().includes(searchStr) || search.body.toUpperCase().includes(searchStr));
+	return (search.title.toUpperCase().includes(searchStr) || 
+		search.body.toUpperCase().includes(searchStr));
 	});
 		box.innerHTML = '';
 		newArr.map(function(search) {
