@@ -1,11 +1,11 @@
 class Idea {
 	constructor(ideaObj) {
-		this.id      = ideaObj.id;
-		this.title   = ideaObj.title;
-		this.body    = ideaObj.body;
-		this.star    = ideaObj.star || false;
+		this.id        = ideaObj.id;
+		this.title     = ideaObj.title;
+		this.body      = ideaObj.body;
+		this.star      = ideaObj.star || false;
 		this.qualities = ["Swill", "Plausible", "Genius"];
-    this.quality = ideaObj.quality || 0;
+    	this.quality   = ideaObj.quality || 0;
 	};
 
 	setLocalStorage() {
@@ -18,7 +18,7 @@ class Idea {
   	};
 
   updateIdeaTitle(newTitle) {
-      this.title = newTitle;
+      	this.title = newTitle;
   		this.setLocalStorage(globalArr);
   		console.log(globalArr);
   	};

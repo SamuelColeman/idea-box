@@ -1,23 +1,22 @@
 var globalArr          = JSON.parse(localStorage.getItem('ideaArr')) || [];
+var assignDown 		   = document.querySelector('.footer_quality-down');
+var assignUp		   = document.querySelector('.footer_quality-up');
 var box                = document.querySelector('.box');
 var boxCardHeader      = document.querySelector('.box_card-header');
+var boxCardFooter 	   = document.querySelector('.box_card-footer');
 var boxIdeaPlaceholder = document.querySelector('.box_idea-placeholder');
 var ideaBodyInput      = document.querySelector('.idea_body-input');
 var ideaContainer      = document.querySelector('.idea');
 var ideaSaveBtn        = document.querySelector('.idea_save-btn');
 var ideaTitleInput     = document.querySelector('.idea_title-input');
 var inputs             = document.querySelectorAll('textarea');
-var ideaSearchInput		 = document.querySelector('.idea_search-input');
+var ideaSearchInput    = document.querySelector('.idea_search-input');
 
-
-box.addEventListener('click', ideaCardActions);
+box.addEventListener('click', boxEventHandler);
 box.addEventListener('keydown', isEnterKey);
-if (boxCardHeader) {
-	boxCardHeader.addEventListener('click', favoriteIdeaStarToggle);	
-};
 ideaContainer.addEventListener('click', clickSaveBtn);
-window.addEventListener('load', pageLoad);
 ideaSearchInput.addEventListener('keyup', filterSearch);
+window.addEventListener('load', pageLoad);
 
 function pageLoad(){
 	persistedIdeas();
@@ -26,53 +25,22 @@ function pageLoad(){
 	ideaPlaceholder();
 };
 
-var assignUp =  document.querySelector('.footer_quality-up');
-var assignDown =  document.querySelector('.footer_quality-down');
-
-box.addEventListener('click', increaseQuality);
-box.addEventListener('click', decreaseQuality);
-
-function increaseQuality(event) {
-    var cardIndex = findIndex(event);
-    var assignUp = event.target.closest('.footer_quality-up');
-    if (event.target === assignUp) {
-        var currentQuality = globalArr[cardIndex].quality;
-         if (currentQuality < 2) {
-         	currentQuality++;
-         	globalArr[cardIndex].quality = currentQuality;
-         	globalArr[cardIndex].setLocalStorage();
-         };
-    };
-    displayQuality(event, cardIndex);
-};
-
-function decreaseQuality(event) {
-    var cardIndex = findIndex(event);
-    var assignDown = event.target.closest('.footer_quality-down');
- 		if (event.target === assignDown) {
-        var currentQuality = globalArr[cardIndex].quality;
-         if (currentQuality > 0) {
-         	currentQuality--;
-         	globalArr[cardIndex].quality = currentQuality;
-         	globalArr[cardIndex].setLocalStorage();
-         };
-    };
-    displayQuality(event, cardIndex);
-};
-
-function displayQuality(event, cardIndex) {
-	var currentQuality = globalArr[cardIndex].quality;
-	var qualityName = globalArr[cardIndex].qualities[currentQuality];
-	event.target.closest('footer').querySelector('.box_card-value').innerText = qualityName;
-};
-
-
-function ideaCardActions(event) {
+function boxEventHandler(event) {
 	event.preventDefault();
-	deleteCard(event);
-	favoriteIdeaStarToggle(event);
 	ideaPlaceholder();
-};
+	if (event.target.closest('.footer_quality-up')) {
+		increaseQuality(event);
+	}
+	if (event.target.closest('.footer_quality-down')) {
+		decreaseQuality(event);
+	}
+	if (event.target.closest('.img_btn-star')) {
+		favoriteIdeaStarToggle(event);
+	}
+	if (event.target.classList.contains('img_btn-exit')) {
+		deleteCard(event);
+	}
+}
 
 function ideaPlaceholder() {
 	if (globalArr.length < 1) {
@@ -83,7 +51,6 @@ function ideaPlaceholder() {
 };
 
 function persistedIdeas(){
-
 	for (var i = 0; i < globalArr.length; i++){
 		var id      = globalArr[i].id;
 		var title   = globalArr[i].title;
@@ -140,6 +107,17 @@ function makeNewIdea() {
 	idea.setLocalStorage(globalArr);
 };
 
+function filterSearch() {
+	var searchStr = ideaSearchInput.value.toUpperCase();
+	var newArr = globalArr.filter(function(search){
+	return (search.title.toUpperCase().includes(searchStr) || 
+		search.body.toUpperCase().includes(searchStr));
+	});
+		box.innerHTML = '';
+		newArr.map(function(search) {
+			appendNewCard(search);
+	});
+};
 
 function deleteCard(event) {
   var cardIndex = findIndex(event);
@@ -172,7 +150,7 @@ function appendNewCard(idea) {
 	};
 	var quality = idea.qualities[idea.quality];
 	
-	box.insertAdjacentHTML('beforeend',
+	box.insertAdjacentHTML('afterbegin',
 				`<section class="box_card" data-id=${idea.id}>
 			<header class="box_card-header">
 				<input class="img_btn-star box_card-icon" src="${star}" type="image">
@@ -197,23 +175,13 @@ function favoriteIdeaStarToggle(event) {
 	var activeStar   = 'images/star-active.svg';
 	var inactiveStar = 'images/star.svg';
 	var cardIndex    = findIndex(event);
-	if (event.target.closest('.img_btn-star')){
-		globalArr[cardIndex].star = !globalArr[cardIndex].star;
-		if (globalArr[cardIndex].star) {
-			event.target.src = activeStar;
-		} else {
-			event.target.src = inactiveStar;
-		};
-		globalArr[cardIndex].setLocalStorage(globalArr);
+	globalArr[cardIndex].star = !globalArr[cardIndex].star;
+	if (globalArr[cardIndex].star) {
+		event.target.src = activeStar;
+	} else {
+		event.target.src = inactiveStar;
 	};
-};
-
-function disableBtn() {
-	if (ideaTitleInput.value !== "" && ideaBodyInput.value !== "") {
- 			ideaSaveBtn.disabled = false;
- 		} else {
- 			ideaSaveBtn.disabled = true;
- 	};
+	globalArr[cardIndex].setLocalStorage(globalArr);
 };
 
 function isEnterKey(event) {
@@ -239,14 +207,41 @@ function saveEditedBody (event) {
 	globalArr[cardIndex].updateIdeaBody(editedIdeaBody);
 };
 
-function filterSearch() {
-	var searchStr = ideaSearchInput.value.toUpperCase();
-	var newArr = globalArr.filter(function(search){
-	return (search.title.toUpperCase().includes(searchStr) || 
-		search.body.toUpperCase().includes(searchStr));
-	});
-		box.innerHTML = '';
-		newArr.map(function(search) {
-			appendNewCard(search);
-	});
+function increaseQuality(event) {
+    var cardIndex = findIndex(event);
+    var currentQuality = globalArr[cardIndex].quality;
+    if (currentQuality < 2) {
+       currentQuality++;
+       globalArr[cardIndex].quality = currentQuality;
+       globalArr[cardIndex].setLocalStorage();
+    };
+    displayQuality(event, cardIndex);
+};
+
+function decreaseQuality(event) {
+    var cardIndex = findIndex(event);
+    var currentQuality = globalArr[cardIndex].quality;
+    if (currentQuality > 0) {
+       currentQuality--;
+       globalArr[cardIndex].quality = currentQuality;
+       globalArr[cardIndex].setLocalStorage();
+    };
+    displayQuality(event, cardIndex);
+};
+
+function displayQuality(event, cardIndex) {
+	var currentQuality = globalArr[cardIndex].quality;
+	var qualityName = globalArr[cardIndex].qualities[currentQuality];
+	event.target.closest('footer').querySelector('.box_card-value').innerText = qualityName;
+};
+
+function disableBtn() {
+	if (ideaTitleInput.value !== "" &&
+		ideaBodyInput.value !== "") {
+ 		ideaSaveBtn.disabled = false;
+ 		ideaSaveBtn.classList.remove('disabled')
+ 	} else {
+ 		ideaSaveBtn.disabled = true;
+ 		ideaSaveBtn.classList.add('disabled')
+ 	};
 };

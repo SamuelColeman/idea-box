@@ -8,7 +8,7 @@ body {
 	display: grid;
 	font-family: 'Open Sans', sans-serif;
 	grid-template-columns: 20% auto;
-	grid-template-rows: 50% auto;
+	grid-template-rows: 55% auto;
 	grid-template-areas: 
 
 	"sidebar idea idea" 
@@ -49,9 +49,6 @@ body {
 	background-color: #A9AAD2;
 	height: 1px;
 	width: 100%;
-}
-
-.quality {
 }
 
 .quality_swill-btn,
@@ -126,6 +123,7 @@ body {
 	font-size: 20px;
 	height: 40px;
 	padding-left: 10px;
+	padding-top: 10px;
 	width: 98%;
 }
 
@@ -137,6 +135,7 @@ body {
 	margin: 2% 0;
 	overflow: scroll;
 	padding-left: 10px;
+	padding-top: 10px;
 	width: 98%;
 }
 
@@ -222,7 +221,7 @@ body {
 .box_card-footer {
 	display: flex;
 	align-items: center;
-	background-color: #353567;
+	background-color: #5356A4;
 	border-bottom: 1px solid #1F1F3D;
 	border-left: 1px solid #1F1F3D;
 	border-right: 1px solid #1F1F3D;
@@ -254,4 +253,8 @@ body {
     font-size: 75px;
     text-align: center;
     color: #A9AAD2;
+}
+
+.disabled {
+	cursor: not-allowed;
 }
