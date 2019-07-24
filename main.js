@@ -1,6 +1,6 @@
 var globalArr          = JSON.parse(localStorage.getItem('ideaArr')) || [];
 var assignDown 	       = document.querySelector('.footer_quality-down');
-var assignUp	          = document.querySelector('.footer_quality-up');
+var assignUp	         = document.querySelector('.footer_quality-up');
 var box                = document.querySelector('.box');
 var boxCardHeader      = document.querySelector('.box_card-header');
 var boxCardFooter      = document.querySelector('.box_card-footer');
@@ -14,7 +14,7 @@ var ideaSearchInput    = document.querySelector('.idea_search-input');
 
 box.addEventListener('click', boxEventHandler);
 box.addEventListener('keydown', isEnterKey);
-ideaContainer.addEventListener('click', clickSaveBtn);
+ideaSaveBtn.addEventListener('click', clickSaveBtn);
 ideaSearchInput.addEventListener('keyup', filterSearch);
 window.addEventListener('load', pageLoad);
 
@@ -87,6 +87,7 @@ for (i=0; i < inputs.length; i++) {
 };
 
 function clickSaveBtn(event) {
+	console.log('hiYASSSS')
   event.preventDefault();
   if (event.target.classList.contains('idea_save-btn')) {
     makeNewIdea();
@@ -104,6 +105,7 @@ function makeNewIdea() {
     body:  ideaBodyInput.value 
   });
   globalArr.push(idea);
+  appendNewCard(idea);
   idea.setLocalStorage(globalArr);
 };
 
@@ -258,8 +260,6 @@ navBar_hamburger-menu.insertAdjacentHTML('afterbegin',`
       </section>
       <div class="navBar_border"></div>`)
 };
-// Rename favoriteIdeaStarToggle to header something
-// boxCardHeader should invoke deleteCard() and favoriteIdeaStarToggle(event)
 
 function displayQuality(event, cardIndex) {
   var currentQuality = globalArr[cardIndex].quality;
