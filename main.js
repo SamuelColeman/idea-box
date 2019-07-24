@@ -1,6 +1,6 @@
 var globalArr          = JSON.parse(localStorage.getItem('ideaArr')) || [];
 var assignDown 	       = document.querySelector('.footer_quality-down');
-var assignUp	       = document.querySelector('.footer_quality-up');
+var assignUp	          = document.querySelector('.footer_quality-up');
 var box                = document.querySelector('.box');
 var boxCardHeader      = document.querySelector('.box_card-header');
 var boxCardFooter      = document.querySelector('.box_card-footer');
@@ -19,11 +19,12 @@ ideaSearchInput.addEventListener('keyup', filterSearch);
 window.addEventListener('load', pageLoad);
 
 function pageLoad(){
-  persistedIdeas();
-  reinstantiateCard();
-  disableBtn();
-  ideaPlaceholder();
-};
+	persistedIdeas();
+	reinstantiateCard();
+	disableBtn();
+	ideaPlaceholder();
+  hamburger();
+}
 
 function boxEventHandler(event) {
   event.preventDefault();
@@ -219,6 +220,46 @@ function decreaseQuality(event) {
     };
     displayQuality(event, cardIndex);
 };
+
+
+function filterSearch() {
+	var searchStr = ideaSearchInput.value.toUpperCase();
+	var newArr = globalArr.filter(function(search){
+	return (search.title.toUpperCase().includes(searchStr) || search.body.toUpperCase().includes(searchStr));
+	})
+		box.innerHTML = '';
+		newArr.map(function(search) {
+			appendNewCard(search);
+	});
+}
+
+function hamburger() {
+navBar_hamburger-menu.insertAdjacentHTML('afterbegin',`
+  <button type="image" class="hamburger_btn hidden"> <img class="hamburger_btn-img" src= "images/menu.svg" alt = "hamburger menu"/> 
+      </button>
+      <header class="navBar_header">IdeaBox Redux
+      </header>
+  <div class="navBar_border"></div>
+      <section class="navBar_star">
+        <p class="navBar_star-title">Filter Starred Ideas</p>
+        <button class="navBar_star-button" type="button">Show Starred Ideas</button>
+      </section>
+      <div class="navBar_border"></div>
+      <section class="quality">
+        <p class="quality_title">Filter by Quality</p>
+        <button class="quality_swill-btn" type="button">Swill</button>
+        <button class="quality_plausible-btn" type="button">Plausible</button>
+        <button class="quality_genius-btn" type="button">Genius</button>
+        <form class="quality_form">
+          <p class="quality_new-title">New Quality</p>
+          <input class="quality_new-input" type="text">
+          <button class="quality_new-btn" type="button">Add New Quality</button>
+        </form>
+      </section>
+      <div class="navBar_border"></div>`)
+};
+// Rename favoriteIdeaStarToggle to header something
+// boxCardHeader should invoke deleteCard() and favoriteIdeaStarToggle(event)
 
 function displayQuality(event, cardIndex) {
   var currentQuality = globalArr[cardIndex].quality;

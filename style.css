@@ -10,10 +10,10 @@ body {
 	grid-template-columns: 20% auto;
 	grid-template-rows: 55% auto;
 	grid-template-areas: 
-
-	"sidebar idea idea" 
-	"sidebar card card";
+			"sidebar idea idea" 
+			"sidebar card card";
 	height: 100vh;
+	background-color:#1F1F3D;
 }
 
 /* Navigation Menu */
@@ -252,13 +252,14 @@ body {
 	display: none;
 }
 
+
 .box_idea-placeholder {
     color: #A9AAD2;
     font-size: 75px;
     font-weight: 700;
     padding:40px;
     text-align: center;
-    width:100%;
+     width:100%;
 }
 
 .disabled {
@@ -266,3 +267,234 @@ body {
 }
 
 /* Media Queries */
+
+@media screen and (max-width: 915px) {
+	body {
+		display:block;
+		grid-template-areas:
+		    "sidebar"
+		    "idea" 
+		    "card card";
+		background-color: #EAEAF4
+	}
+
+	#navBar_hamburger-menu {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		max-height: 65px;
+		background-color: #1F1F3D;
+	}
+
+	.navBar {
+		display: flex;
+		justify-content: flex-start;
+		width: 100%;
+	}
+
+	.hamburger_btn {
+		display: flex;
+		padding: 10px;
+	}
+
+	.hamburger_btn-img {
+		height: 50px;
+	}
+
+	.navBar_hamberger-divide {
+		display: none;
+	}
+
+	.navBar_header {
+		color:#ffffff;
+		margin-left: 115px;
+	}
+
+	.box,
+	.idea {
+		width: 100%;
+	}
+
+	.idea {
+		padding-top: 80px;
+		padding-bottom: 15px;
+	}
+
+	.box {
+		display: grid;
+		grid-area: box;
+		background-color: #EAEAF4;
+		grid-template-columns: 1fr 1fr;
+		/*grid-template-rows: 1fr 1fr;*/
+		height: 100vh;
+		width: 100%;
+	}
+
+	.box_card {
+		height: 90%;
+		margin: 3% auto;
+		width: 90%;
+
+	}
+}
+
+
+@media screen and (max-width: 690px) {
+	body {
+		display:block;
+			grid-template-areas:
+		     "sidebar"
+		     "idea" 
+		     "card";
+		background-color: #EAEAF4
+	}
+
+	#navBar_hamburger-menu {
+		position: absolute;
+		display:flex;
+		flex-direction: column;
+		width: 100%;
+		max-height: 65px;
+		background-color: #1F1F3D;
+	}
+
+	.navBar {
+		display:flex;
+		justify-content: flex-start;
+		width:100%;
+	}
+
+	.hamburger_btn {
+		display: flex;
+		padding: 10px;
+	}
+
+	.hamburger_btn-img {
+		height: 50px;
+	}
+
+	.navBar_hamberger-divide {
+		display: none;
+	}
+
+	.navBar_header {
+		color:#ffffff;
+		margin-left: 115px;
+	}
+
+	.box,
+	.idea {
+		width: 100%;
+	}
+
+	.idea {
+		padding-top: 80px;
+		padding-bottom: 15px;
+	}
+
+	.box {
+		display: grid;
+		grid-area: box;
+		background-color: #EAEAF4;
+		grid-template-columns: 1fr;
+		height: 100vh;
+		width: 100%;
+	}
+
+	.box_card {
+		height: 90%;
+		margin: 3% auto;
+		width: 90%;
+
+	}
+}
+
+	@media screen and (max-width: 670px){
+		body {
+		display:block;
+			grid-template-areas:
+		     "sidebar"
+		     "idea" 
+		     "card";
+		background-color: #EAEAF4
+	}
+
+	#navBar_hamburger-menu {
+		position: absolute;
+		flex-direction: column;
+		width: 100%;
+		max-height: 65px;
+		background-color: #1F1F3D;
+	}
+
+	.navBar {
+		display:flex;
+		justify-content: flex-start;
+	}
+
+	.hamburger_btn {
+		display: flex;
+		padding: 10px;
+	}
+
+	.hamburger_btn-img {
+		height: 50px;
+	}
+
+	.navBar_hamberger-divide {
+		display: none;
+	}
+
+	.navBar_header {
+		color:#ffffff;
+		margin-left: 20px;
+		font-size: 20px;
+	}
+
+	.idea_search-input,
+	.idea_search-icon {
+		margin: 3px 0px;
+	}
+
+	.form {
+		width:90%;
+	}
+
+	.box,
+	.idea {
+		width: 100%;
+	}
+
+	.idea {
+		padding-top: 80px;
+		padding-bottom: 15px;
+	}
+
+	.idea_title-input,
+	.idea_body-input {
+	}
+
+	.idea_search-input {
+    width: 85%;
+	}
+
+	form {
+	 width: 90%;
+	}
+
+	.box {
+		display: grid;
+		grid-area: box;
+		background-color: #EAEAF4;
+		grid-template-columns: 1fr;
+		height: 100vh;
+		width: 100%;
+	}
+
+	.box_card {
+		height: 90%;
+		margin: 3% auto;
+		width: 90%;
+	}
+
