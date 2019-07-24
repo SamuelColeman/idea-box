@@ -6,7 +6,7 @@ var ideaBodyInput      = document.querySelector('.idea_body-input');
 var ideaContainer      = document.querySelector('.idea');
 var ideaSaveBtn        = document.querySelector('.idea_save-btn');
 var ideaTitleInput     = document.querySelector('.idea_title-input');
-var inputs             = document.querySelectorAll('input');
+var inputs             = document.querySelectorAll('textarea');
 var ideaSearchInput		 = document.querySelector('.idea_search-input');
 
 
