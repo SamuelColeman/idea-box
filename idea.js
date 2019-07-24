@@ -5,7 +5,7 @@ class Idea {
 		this.body      = ideaObj.body;
 		this.star      = ideaObj.star || false;
 		this.qualities = ["Swill", "Plausible", "Genius"];
-    	this.quality   = ideaObj.quality || 0;
+    this.quality   = ideaObj.quality || 0;
 	};
 
 	setLocalStorage() {
@@ -13,19 +13,19 @@ class Idea {
 	};
 
 	deleteFromStorage(cardIndex) {
-    	globalArr.splice(cardIndex, 1);
-    	this.setLocalStorage();
-  	};
+    globalArr.splice(cardIndex, 1);
+    this.setLocalStorage();
+  };
 
   updateIdeaTitle(newTitle) {
-      	this.title = newTitle;
-  		this.setLocalStorage(globalArr);
-  		console.log(globalArr);
-  	};
+    this.title = newTitle;
+  	this.setLocalStorage(globalArr);
+  	console.log(globalArr);
+  };
 
   updateIdeaBody(newBody) {
-  		this.body = newBody;
-  		this.setLocalStorage(globalArr);
-  		console.log(globalArr);
-  	};
+  	this.body = newBody;
+  	this.setLocalStorage(globalArr);
+  	console.log(globalArr);
+  };
 };
