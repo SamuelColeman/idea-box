@@ -3,30 +3,33 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
 </head>
 <body>
 	<container class="navBar">
-		<header class="navBar_header">IdeaBox Redux
-		</header>
-		<div class="navBar_border"></div>
-		<section class="navBar_star">
-			<p class="navBar_star-title">Filter Starred Ideas</p>
-			<button class="navBar_star-button" type="button">Show Starred Ideas</button>
-		</section>
-		<div class="navBar_border"></div>
-		<section class="quality">
-			<p class="quality_title">Filter by Quality</p>
-			<button class="quality_swill-btn" type="button">Swill</button>
-			<button class="quality_plausible-btn" type="button">Plausible</button>
-			<button class="quality_genius-btn" type="button">Genius</button>
-			<form class="quality_form">
-				<p class="quality_new-title">New Quality</p>
-				<input class="quality_new-input" type="text">
-				<button class="quality_new-btn" type="button">Add New Quality</button>
-			</form>
-		</section>
-		<div class="navBar_border"></div>
+		<container id="navBar_hamburger-menu">
+			<header class="navBar_header">IdeaBox Redux
+			</header>
+			<div class="navBar_border"></div>
+			<section class="navBar_star">
+				<p class="navBar_star-title">Filter Starred Ideas</p>
+				<button class="navBar_star-button" type="button">Show Starred Ideas</button>
+			</section>
+			<div class="navBar_border"></div>
+			<section class="quality">
+				<p class="quality_title">Filter by Quality</p>
+				<button class="quality_swill-btn" type="button">Swill</button>
+				<button class="quality_plausible-btn" type="button">Plausible</button>
+				<button class="quality_genius-btn" type="button">Genius</button>
+				<form class="quality_form">
+					<p class="quality_new-title">New Quality</p>
+					<input class="quality_new-input" type="text">
+					<button class="quality_new-btn" type="button">Add New Quality</button>
+				</form>
+			</section>
+			<div class="navBar_border"></div>
+		</container>
 	</container>
 	<container class="idea">
 		<form class="idea_form">
