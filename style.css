@@ -278,7 +278,7 @@ body {
 
 /* Media Queries */
 
-@media screen and (max-width: 915px) {
+@media screen and (max-width: 964px) {
 	body {
 		display:block;
 		grid-template-areas:
