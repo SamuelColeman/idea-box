@@ -4,7 +4,7 @@
 ## General Info
 
 A project for deeping our understanding of JavaScript in Turing's Front-End Engineering course, Module 1.
-Repository can be found <a href="https://github.com/SamuelColeman/idea-box">here</a> and the project specs can be found <a href="https://frontend.turing.io/projects/ideabox-redux-wk1.html">here</a> and <a href="https://frontend.turing.io/projects/ideabox-redux-wk2.html">here</a>
+Repository can be found <a href="https://github.com/SamuelColeman/idea-box">here</a> and the project specs can be found <a href="https://frontend.turing.io/projects/ideabox-redux-wk1.html">here</a> and <a href="https://frontend.turing.io/projects/ideabox-redux-wk2.html">here</a>. The live page can be accessed <a href="https://samuelcoleman.github.io/idea-box/">here</a>.
 
 ## Contributors 
 
