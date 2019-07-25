@@ -29,11 +29,11 @@ Idea Box is a group project I was assigned as a mod one student at Turing. We we
 
 ![Provided static comp for mobile](images/IdeaBox-Mobile.jpg "Provided static comp for mobile")
 
-![Desktop Version No Ideas](images/No-Ideas-Desktop.png "Desktop layout without ideas")
+![Desktop Version No Ideas](images/No-ideas-Desktop.png "Desktop layout without ideas")
 
 ![Desktop Version With Ideas](images/Ideas-Desktop.png "Desktop layout with ideas")
 
-![Mobile Version With Ideas](images/IdeaBox-Mobile-png "Mobile layout with ideas")
+![Mobile Version With Ideas](images/IdeaBox-Mobile-.png "Mobile layout with ideas")
 
 ## Features
 
