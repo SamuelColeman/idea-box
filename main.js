@@ -104,6 +104,7 @@ function makeNewIdea() {
     body:  ideaBodyInput.value 
   });
   globalArr.push(idea);
+  appendNewCard(idea);
   idea.setLocalStorage(globalArr);
 };
 

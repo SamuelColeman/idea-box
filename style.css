@@ -19,8 +19,7 @@ body {
 /* Navigation Menu */
 
 .navBar {
-	background-color: #1F1F3D;
-	color:#ffffff;	
+	background-color: #1F1F3D;	
 	display:block;
 	grid-area: sidebar;
 }
@@ -29,10 +28,13 @@ body {
 	font-weight: bold;
 	font-size: 30px;
 	padding: 20px;
+	color:#ffffff;
 }
 
 .navBar_star-title {
+	color: #BFBFDD;
 	padding:20px;
+	font-weight: 700;
 }
 
 .navBar_star-button {
@@ -79,6 +81,7 @@ body {
 	font-size: 15px;
 	font-weight: 700;
 	padding: 20px 20px 5px 20px;
+	color: #BFBFDD;
 }
 
 .quality_new-btn {
@@ -97,6 +100,7 @@ body {
 	font-size: 15px;
 	font-weight: 700;
 	padding: 20px 20px 5px 20px;
+	color: #BFBFDD;
 }
 
 .quality_new-input {
@@ -104,7 +108,14 @@ body {
 	height: 35px;
 	margin: 5px 10px 15px 20px;
 	width: 85%;
+	background-color: #E9E9F3;
 }
+
+.hamburger_btn,
+.hamburger_btn-img {
+	background-color: #1F1F3D;
+	border-color: #1F1F3D;
+} 
 
 /* Idea Generator Section */
 
@@ -307,12 +318,19 @@ body {
 	}
 
 	.navBar_header {
-		color:#ffffff;
-		margin-left: 115px;
+		margin: 0px auto 0px 27%;
 	}
 
 	.box,
 	.idea {
+		width: 100%;
+	}
+
+	form {
+		width:75%;
+	}
+
+	.idea_search-input {
 		width: 100%;
 	}
 
@@ -350,151 +368,30 @@ body {
 		background-color: #EAEAF4
 	}
 
-	#navBar_hamburger-menu {
-		position: absolute;
-		display:flex;
-		flex-direction: column;
-		width: 100%;
-		max-height: 65px;
-		background-color: #1F1F3D;
-	}
-
 	.navBar {
 		display:flex;
 		justify-content: flex-start;
 		width:100%;
 	}
 
-	.hamburger_btn {
-		display: flex;
-		padding: 10px;
-	}
-
-	.hamburger_btn-img {
-		height: 50px;
-	}
-
-	.navBar_hamberger-divide {
-		display: none;
-	}
-
 	.navBar_header {
-		color:#ffffff;
-		margin-left: 115px;
-	}
-
-	.box,
-	.idea {
-		width: 100%;
-	}
-
-	.idea {
-		padding-top: 80px;
-		padding-bottom: 15px;
+		margin: 0px auto;
 	}
 
 	.box {
-		display: grid;
-		grid-area: box;
-		background-color: #EAEAF4;
 		grid-template-columns: 1fr;
-		height: 100vh;
-		width: 100%;
 	}
 
 	.box_card {
 		height: 90%;
 		margin: 3% auto;
 		width: 90%;
-
 	}
 }
 
-	@media screen and (max-width: 670px){
-		body {
-		display:block;
-			grid-template-areas:
-		     "sidebar"
-		     "idea" 
-		     "card";
-		background-color: #EAEAF4
-	}
-
-	#navBar_hamburger-menu {
-		position: absolute;
-		flex-direction: column;
-		width: 100%;
-		max-height: 65px;
-		background-color: #1F1F3D;
-	}
-
-	.navBar {
-		display:flex;
-		justify-content: flex-start;
-	}
-
-	.hamburger_btn {
-		display: flex;
-		padding: 10px;
-	}
-
-	.hamburger_btn-img {
-		height: 50px;
-	}
-
-	.navBar_hamberger-divide {
-		display: none;
-	}
-
-	.navBar_header {
-		color:#ffffff;
-		margin-left: 20px;
-		font-size: 20px;
-	}
-
-	.idea_search-input,
-	.idea_search-icon {
-		margin: 3px 0px;
-	}
-
-	.form {
-		width:90%;
-	}
-
-	.box,
-	.idea {
-		width: 100%;
-	}
-
-	.idea {
-		padding-top: 80px;
-		padding-bottom: 15px;
-	}
-
-	.idea_title-input,
-	.idea_body-input {
-	}
-
-	.idea_search-input {
-    width: 85%;
-	}
-
-	form {
-	 width: 90%;
-	}
-
-	.box {
-		display: grid;
-		grid-area: box;
-		background-color: #EAEAF4;
-		grid-template-columns: 1fr;
-		height: 100vh;
-		width: 100%;
-	}
-
-	.box_card {
-		height: 90%;
-		margin: 3% auto;
-		width: 90%;
+	@media screen and (max-width: 362px){
+		.navBar_header {
+			font-size: 20px;
+		}
 	}
 
