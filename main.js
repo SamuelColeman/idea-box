@@ -19,6 +19,7 @@ box.addEventListener('mouseout', btnHoverOut);
 ideaSaveBtn.addEventListener('click', clickSaveBtn);
 ideaSearchInput.addEventListener('keyup', filterSearch);
 window.addEventListener('load', pageLoad);
+checkInputFields();
 
 function pageLoad(){
 	persistedIdeas();
@@ -26,24 +27,24 @@ function pageLoad(){
 	disableBtn();
 	ideaPlaceholder();
   hamburger();
-}
+};
 
 function boxEventHandler(event) {
   event.preventDefault();
   ideaPlaceholder();
   if (event.target.closest('.footer_quality-up')) {
     increaseQuality(event);
-  }
+  };
   if (event.target.closest('.footer_quality-down')) {
     decreaseQuality(event);
-  }
+  };
   if (event.target.closest('.img_btn-star')) {
     favoriteIdeaStarToggle(event);
-  }
+  };
   if (event.target.classList.contains('img_btn-exit')) {
     deleteCard(event);
-  }
-}
+  };
+};
 
 function activeBtnHover(event) {
 	if (event.target.classList.contains('img_btn-exit')) {
@@ -106,10 +107,12 @@ function reinstantiateCard(){
   }); 
 };
 
-for (i=0; i < inputs.length; i++) {
-  inputs[i].addEventListener('keyup', function () {
-    disableBtn();
-  });
+function checkInputFields() {
+  for (i=0; i < inputs.length; i++) {
+    inputs[i].addEventListener('keyup', function () {
+      disableBtn();
+    });
+  };
 };
 
 function clickSaveBtn(event) {
