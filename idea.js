@@ -17,15 +17,8 @@ class Idea {
     this.setLocalStorage();
   };
 
-  updateIdeaTitle(newTitle) {
-    this.title = newTitle;
+  update(updatedObj) {
+  	Object.assign(this, updatedObj);
   	this.setLocalStorage(globalArr);
-  	console.log(globalArr);
-  };
-
-  updateIdeaBody(newBody) {
-  	this.body = newBody;
-  	this.setLocalStorage(globalArr);
-  	console.log(globalArr);
   };
 };

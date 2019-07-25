@@ -48,19 +48,23 @@ function boxEventHandler(event) {
 function activeBtnHover(event) {
 	if (event.target.classList.contains('img_btn-exit')) {
 		event.target.src = 'images/delete-active.svg';
-	} else if (event.target.classList.contains('footer_quality-up')) {
+	}
+	if (event.target.classList.contains('footer_quality-up')) {
 		event.target.src = 'images/upvote-active.svg';
-	} else if (event.target.classList.contains('footer_quality-down')) {
+	}
+	if (event.target.classList.contains('footer_quality-down')) {
 		event.target.src = 'images/downvote-active.svg';
 	}
 }
 
 function btnHoverOut(event) {
-		if (event.target.classList.contains('img_btn-exit')) {
+	if (event.target.classList.contains('img_btn-exit')) {
 		event.target.src = 'images/delete.svg';
-	} else if (event.target.classList.contains('footer_quality-up')) {
+	}
+	if (event.target.classList.contains('footer_quality-up')) {
 		event.target.src = 'images/upvote.svg';
-	} else if (event.target.classList.contains('footer_quality-down')) {
+	}
+	if (event.target.classList.contains('footer_quality-down')) {
 		event.target.src = 'images/downvote.svg';
 	}
 }
@@ -109,7 +113,6 @@ for (i=0; i < inputs.length; i++) {
 };
 
 function clickSaveBtn(event) {
-	console.log('hiYASSSS')
   event.preventDefault();
   if (event.target.classList.contains('idea_save-btn')) {
     makeNewIdea();
@@ -219,8 +222,7 @@ function isEnterKey(event) {
 
 function saveEditedText(event, title, body) {
   var cardIndex = findIndex(event);
-  globalArr[cardIndex].updateIdeaTitle(title);
-  globalArr[cardIndex].updateIdeaBody(body);
+  globalArr[cardIndex].update({title, body})
 }
 
 function increaseQuality(event) {
@@ -299,39 +301,3 @@ function disableBtn() {
     ideaSaveBtn.classList.add('disabled')
   };
 };
-
-function deleteImgMouseover (event) {
-	if (event.target.classList.contains('img_btn-exit')) {
-		event.target.src = 'images/delete-active.svg';
-	}
-}
-
-function upvoteImgMouseover (event) {
-
-}
-
-function downvoteImgMouseover (event) {
-
-}
-
-
-// function eventHandlerHover(e){
-//   if (e.target.classList.contains("section__img--delete")){
-//     e.target.src = "icons/delete-active.svg";;
-//   }
-//   else if (e.target.classList.contains("section__img--upvote")){
-//     e.target.src = "icons/upvote-active.svg";
-//   } else if (e.target.classList.contains("section__img--downvote")){
-//     e.target.src = "icons/downvote-active.svg";
-//   }
-// }
-// function eventHandlerHoverClear(e){
-//   if (e.target.classList.contains("section__img--delete")){
-//     e.target.src = "icons/delete.svg";;
-//   }
-//   else if (e.target.classList.contains("section__img--upvote")){
-//     e.target.src = "icons/upvote.svg";
-//   } else if (e.target.classList.contains("section__img--downvote")){
-//     e.target.src = "icons/downvote.svg";
-//   }
-// }

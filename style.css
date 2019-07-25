@@ -312,7 +312,7 @@ body {
 		height: 50px;
 	}
 
-	.navBar_hamberger-divide {
+	.navBar_hamburger-divide {
 		display: none;
 	}
 
@@ -343,7 +343,6 @@ body {
 		grid-area: box;
 		background-color: #EAEAF4;
 		grid-template-columns: 1fr 1fr;
-		/*grid-template-rows: 1fr 1fr;*/
 		height: 100vh;
 		width: 100%;
 	}
@@ -355,7 +354,6 @@ body {
 
 	}
 }
-
 
 @media screen and (max-width: 690px) {
 	body {
