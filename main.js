@@ -1,6 +1,6 @@
 var globalArr          = JSON.parse(localStorage.getItem('ideaArr')) || [];
 var assignDown 	       = document.querySelector('.footer_quality-down');
-var assignUp	          = document.querySelector('.footer_quality-up');
+var assignUp	         = document.querySelector('.footer_quality-up');
 var box                = document.querySelector('.box');
 var boxCardHeader      = document.querySelector('.box_card-header');
 var boxCardFooter      = document.querySelector('.box_card-footer');
@@ -14,7 +14,9 @@ var ideaSearchInput    = document.querySelector('.idea_search-input');
 
 box.addEventListener('click', boxEventHandler);
 box.addEventListener('keydown', isEnterKey);
-ideaContainer.addEventListener('click', clickSaveBtn);
+box.addEventListener('mouseover', activeBtnHover);
+box.addEventListener('mouseout', btnHoverOut);
+ideaSaveBtn.addEventListener('click', clickSaveBtn);
 ideaSearchInput.addEventListener('keyup', filterSearch);
 window.addEventListener('load', pageLoad);
 
@@ -41,6 +43,26 @@ function boxEventHandler(event) {
   if (event.target.classList.contains('img_btn-exit')) {
     deleteCard(event);
   }
+}
+
+function activeBtnHover(event) {
+	if (event.target.classList.contains('img_btn-exit')) {
+		event.target.src = 'images/delete-active.svg';
+	} else if (event.target.classList.contains('footer_quality-up')) {
+		event.target.src = 'images/upvote-active.svg';
+	} else if (event.target.classList.contains('footer_quality-down')) {
+		event.target.src = 'images/downvote-active.svg';
+	}
+}
+
+function btnHoverOut(event) {
+		if (event.target.classList.contains('img_btn-exit')) {
+		event.target.src = 'images/delete.svg';
+	} else if (event.target.classList.contains('footer_quality-up')) {
+		event.target.src = 'images/upvote.svg';
+	} else if (event.target.classList.contains('footer_quality-down')) {
+		event.target.src = 'images/downvote.svg';
+	}
 }
 
 function ideaPlaceholder() {
@@ -87,6 +109,7 @@ for (i=0; i < inputs.length; i++) {
 };
 
 function clickSaveBtn(event) {
+	console.log('hiYASSSS')
   event.preventDefault();
   if (event.target.classList.contains('idea_save-btn')) {
     makeNewIdea();
@@ -259,8 +282,6 @@ navBar_hamburger-menu.insertAdjacentHTML('afterbegin',`
       </section>
       <div class="navBar_border"></div>`)
 };
-// Rename favoriteIdeaStarToggle to header something
-// boxCardHeader should invoke deleteCard() and favoriteIdeaStarToggle(event)
 
 function displayQuality(event, cardIndex) {
   var currentQuality = globalArr[cardIndex].quality;
@@ -278,3 +299,39 @@ function disableBtn() {
     ideaSaveBtn.classList.add('disabled')
   };
 };
+
+function deleteImgMouseover (event) {
+	if (event.target.classList.contains('img_btn-exit')) {
+		event.target.src = 'images/delete-active.svg';
+	}
+}
+
+function upvoteImgMouseover (event) {
+
+}
+
+function downvoteImgMouseover (event) {
+
+}
+
+
+// function eventHandlerHover(e){
+//   if (e.target.classList.contains("section__img--delete")){
+//     e.target.src = "icons/delete-active.svg";;
+//   }
+//   else if (e.target.classList.contains("section__img--upvote")){
+//     e.target.src = "icons/upvote-active.svg";
+//   } else if (e.target.classList.contains("section__img--downvote")){
+//     e.target.src = "icons/downvote-active.svg";
+//   }
+// }
+// function eventHandlerHoverClear(e){
+//   if (e.target.classList.contains("section__img--delete")){
+//     e.target.src = "icons/delete.svg";;
+//   }
+//   else if (e.target.classList.contains("section__img--upvote")){
+//     e.target.src = "icons/upvote.svg";
+//   } else if (e.target.classList.contains("section__img--downvote")){
+//     e.target.src = "icons/downvote.svg";
+//   }
+// }
